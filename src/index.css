@@ -83,10 +83,11 @@ h3 {
 }
 
 .searchbox-container{
+  width: 80vw;
+  max-width: 1044px;
   height: 4em;
   padding: 2em;
   text-align:center;
-  width: 80vw;
   margin: 0 auto;
 }
 
