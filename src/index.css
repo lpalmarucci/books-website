@@ -85,7 +85,7 @@ h3 {
 .searchbox-container{
   width: 80vw;
   max-width: 1044px;
-  height: 4em;
+  height: 20vh;
   padding: 2em;
   text-align:center;
   margin: 0 auto;
@@ -158,5 +158,9 @@ h3 {
   .searchbox-group input{
     padding-left: 20px;
     text-align: center;
+  }
+
+  .searchbox-container{
+    height: 40vh;
   }
 }
