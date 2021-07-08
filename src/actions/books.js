@@ -2,20 +2,19 @@ const getBooks = () => ({
 	type: 'GET_BOOKS'
 }),
 
-	setBooks = (books) => ({
+	setBooksInfos = (booksInfos) => ({
 		type: 'SET_BOOKS',
-		payload: books
+		payload: booksInfos
 	}),
 
-	setNumBooks = (n) => ({
-		type: 'SET_NUM_BOOKS',
-		payload: n
+	setLoading = () => ({
+		type: 'SET_LOADING'
 	}),
 
 	actions = {
 		getBooks,
-		setBooks,
-		setNumBooks
+		setBooksInfos,
+		setLoading
 	}
 
 export default actions

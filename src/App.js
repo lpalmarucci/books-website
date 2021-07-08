@@ -1,7 +1,8 @@
+import React from 'react';
 import SearchBox from './components/SearchBox';
 import BooksContainer from './components/BooksContainer'
 
-function App() {
+export default function App() {
   return (
     <main>
       <SearchBox />
@@ -9,5 +10,3 @@ function App() {
     </main>
   );
 }
-
-export default App;

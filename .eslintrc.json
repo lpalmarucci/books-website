@@ -23,7 +23,7 @@
         "array-bracket-spacing": "error",
         "array-callback-return": "error",
         "array-element-newline": "error",
-        "arrow-body-style": "error",
+        // "arrow-body-style": "error",
         "arrow-parens": [
             "error",
             "always"
@@ -79,7 +79,7 @@
             "beside"
         ],
         "indent": "off",
-        "init-declarations": "error",
+        // "init-declarations": "error",
         "jsx-quotes": [
             "error",
             "prefer-double"
@@ -181,7 +181,7 @@
             }
         ],
         "no-template-curly-in-string": "error",
-        "no-ternary": "error",
+        // "no-ternary": "error",
         "no-throw-literal": "error",
         "no-trailing-spaces": "error",
         "no-undef-init": "error",
@@ -212,7 +212,7 @@
         ],
         "object-property-newline": "error",
         "object-shorthand": "error",
-        "one-var": "error",
+        // "one-var": "error",
         "one-var-declaration-per-line": "error",
         "operator-assignment": "error",
         "operator-linebreak": "error",

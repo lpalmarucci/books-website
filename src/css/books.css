@@ -1,6 +1,11 @@
 .booksContainer{
     width: 90vw;
     margin: 0 auto;
+    padding: 0;
+}
+.booksContainer h2{
+    padding-bottom: 1em;
+    animation: comparsaFaded 1s;
 }
 
 .books{
@@ -11,16 +16,37 @@
 }
 
 .book{
-    width: 344px;
-    height: 444px;
+    width: 444px;
+    /* height: 544px; */
     /* border:1px solid black; */
-    margin: 0 auto;
+    margin: 1em auto;
     border-radius: 30px;
     background-color: #f4f5f7;
-    animation: testoAComparsa 1s;
+    animation: comparsaFaded 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.booksContainer h2{
-    padding-bottom: 1em;
-    animation: testoAComparsa 1s;
+.book h3{
+    padding: 1em 0.5em 0.5em 0.5em;
+}
+
+.book-row{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1em;
+    flex-grow: 2;
+}
+
+.book-row b{
+    width: 40%;
+    text-align:left; 
+}
+
+.book-row span{
+    width: 60%;
+    text-align: right;
 }

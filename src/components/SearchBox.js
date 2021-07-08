@@ -10,10 +10,10 @@ export default function SearchBox() {
         dispatch = useDispatch(),
 
         handleClick = () => {
+            dispatch(actions.setLoading());
             axios.get(`${window.env.GOOGLE_BOOKS_API}?q=${q}`).then((res) => {
                 console.log(res);
-                dispatch(actions.setBooks(res.data.items))
-                dispatch(actions.setNumBooks(res.data.totalItems))
+                dispatch(actions.setBooksInfos(res.data))
             })
         },
 

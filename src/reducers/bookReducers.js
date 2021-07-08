@@ -1,18 +1,22 @@
 const bookReducer = (state = {
     items: [],
-    totalItems: 0
+    totalItems: 0,
+    isLoading: false
 }, action) => {
     switch (action.type) {
 
         case 'SET_BOOKS':
             return {
                 ...state,
-                items: action.payload
+                items: action.payload.items,
+                totalItems: action.payload.totalItems,
+                isLoading: false
             }
-        case 'SET_NUM_BOOKS':
+
+        case 'SET_LOADING':
             return {
                 ...state,
-                totalItems: action.payload
+                isLoading: true
             }
 
         default:

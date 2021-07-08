@@ -93,7 +93,7 @@ h3 {
 }
 
 
-@keyframes testoAComparsa{
+@keyframes comparsaFaded{
   from{
     opacity: 0;
   }

@@ -1,7 +1,12 @@
-@media screen and (max-width: 1300px){
+@media screen and (max-width: 1500px){
     .books{
       grid-template-columns: 1fr 1fr;
     }
+}
+@media screen and (max-width: 1000px){
+  .books{
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -17,14 +22,10 @@
     }
   
     .searchbox-container{
-      height: 40vh;
+      height: 35vh;
     }
   
     .icon-angleDown{
       top: 86px;
-    }
-  
-    .books{
-      grid-template-columns: 1fr;
     }
 }
