@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
 import searchReducers from './searchReducer'
+import bookReducers from './bookReducers'
 
 const RootReducers = combineReducers({
-    search: searchReducers
+    q: searchReducers,
+    books: bookReducers
 })
 
 export default RootReducers
