@@ -6,28 +6,48 @@ import actions from '../actions'
 
 export default function SearchBox() {
 
-    const q = useSelector((state) => state.q),
-        dispatch = useDispatch(),
+    const q = useSelector((state) => state.q)
+    const orderBy = useSelector((state) => state.books.orderBy);
+    console.log(orderBy)
+    const dispatch = useDispatch()
 
-        handleClick = () => {
-            dispatch(actions.setLoading());
-            axios.get(`${window.env.GOOGLE_BOOKS_API}?q=${q}`).then((res) => {
+    const showErrorMessage = (text) => {
+        // Mostrare messaggio d'errore
+        dispatch(actions.throwSearchError())
+        dispatch(actions.stopLoading());
+    }
+
+    const handleClick = () => {
+        dispatch(actions.setLoading());
+        if (q.length > 0) {
+            let url = `${window.env.GOOGLE_BOOKS_API}?q=${q}`;
+            if (orderBy !== '') {
+                url += `&orderBy=${orderBy}`
+            }
+            console.log(`url chiamata api --> ${url}`)
+            axios.get(url).then((res) => {
                 console.log(res);
                 dispatch(actions.setBooksInfos(res.data))
             })
-        },
-
-        handleChange = (e) => {
-            dispatch(actions.setQueryString(e.target.value));
-
+        } else {
+            showErrorMessage('Inserire un parametro di ricerca');
         }
+    }
+
+    const handleChange = (e) => {
+        dispatch(actions.setQueryString(e.target.value));
+    }
+
+    const handleChangeOrderBy = (e) => {
+        dispatch(actions.setOrderBy(e.target.value))
+    }
 
     return (
         <div className="container searchbox-container">
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className="searchbox-group">
                     <div style={{ position: 'absolute' }}>
-                        <select className="searchbox-item search-orderby" defaultValue="orderby">
+                        <select className="searchbox-item search-orderby" defaultValue="orderby" onChange={handleChangeOrderBy}>
                             <option value="orderby" disabled>Order by</option>
                             <option value="newest">Newest</option>
                             <option value="relevance">Relevance</option>

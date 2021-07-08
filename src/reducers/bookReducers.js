@@ -1,7 +1,8 @@
 const bookReducer = (state = {
     items: [],
     totalItems: 0,
-    isLoading: false
+    isLoading: false,
+    orderBy: ''
 }, action) => {
     switch (action.type) {
 
@@ -17,6 +18,18 @@ const bookReducer = (state = {
             return {
                 ...state,
                 isLoading: true
+            }
+
+        case 'SET_ORDERBY':
+            return {
+                ...state,
+                orderBy: action.payload
+            }
+
+        case 'STOP_LOADING':
+            return {
+                ...state,
+                isLoading: false
             }
 
         default:

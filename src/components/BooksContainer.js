@@ -34,18 +34,18 @@ export default function BooksContainer() {
 					console.log(book);
 					const {
 						publisher,
-						publishDate,
+						publishedDate,
 						title,
 						imageLinks
 					} = book.volumeInfo;
 					const authors = book.volumeInfo.authors?.join(', ');
 					const categories = book.volumeInfo.categories?.join(' ')
 
-					const image = imageLinks.smallThumbnail;
+					const image = imageLinks?.smallThumbnail;
 					const newBook = {
 						authors,
 						publisher,
-						publishDate,
+						publishedDate,
 						title,
 						categories,
 						image

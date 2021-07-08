@@ -1,20 +1,31 @@
 const getBooks = () => ({
 	type: 'GET_BOOKS'
-}),
+})
 
-	setBooksInfos = (booksInfos) => ({
-		type: 'SET_BOOKS',
-		payload: booksInfos
-	}),
+const setBooksInfos = (booksInfos) => ({
+	type: 'SET_BOOKS',
+	payload: booksInfos
+})
 
-	setLoading = () => ({
-		type: 'SET_LOADING'
-	}),
+const setLoading = () => ({
+	type: 'SET_LOADING'
+})
 
-	actions = {
-		getBooks,
-		setBooksInfos,
-		setLoading
-	}
+const setOrderBy = (orderBy) => ({
+	type: 'SET_ORDERBY',
+	payload: orderBy
+})
+
+const stopLoading = () => ({
+	type: 'STOP_LOADING'
+})
+
+const actions = {
+	getBooks,
+	setBooksInfos,
+	setLoading,
+	setOrderBy,
+	stopLoading
+}
 
 export default actions

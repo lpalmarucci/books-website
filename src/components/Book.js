@@ -6,7 +6,7 @@ const Book = ({
     categories,
     image,
     publisher,
-    publishDate,
+    publishedDate,
     title
 }) => {
 
@@ -24,7 +24,7 @@ const Book = ({
                 <b>Published By: </b><span>{publisher}</span>
             </div>
             <div className="book-row">
-                <b>Released at </b><span>{publishDate}</span>
+                <b>Released at </b><span>{publishedDate}</span>
             </div>
 
             <div className="book-row" style={{ display: 'inline-block' }}>
@@ -34,16 +34,15 @@ const Book = ({
     )
 }
 
-/*
- * Book.defaultValue = {
- *     authors: propTypes.string.isRequired,
- *     categories: propTypes.string.isRequired,
- *     image: propTypes.string.isRequired,
- *     description: propTypes.string.isRequired,
- *     publisher: propTypes.string.isRequired,
- *     publishDate: propTypes.string.isRequired,
- *     title: propTypes.string.isRequired
- * }
- */
+Book.defaultValue = {
+    authors: '',
+    categories: '',
+    image: '',
+    description: '',
+    publisher: '',
+    publishDate: '',
+    title: ''
+}
+
 
 export default Book;
