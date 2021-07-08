@@ -116,6 +116,8 @@ h3 {
   border-radius: 30px;
   background:#f4f5f7;
   font-size: 1.1em;
+  padding-left: 156px;
+  padding-right: 101px;
 }
 
 .searchbox-item{
@@ -164,13 +166,14 @@ option{
   text-transform: capitalize;
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 800px){
   .searchbox-item{
     top: 66px;
   }
 
   .searchbox-group input{
-    padding-left: 20px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
     text-align: center;
   }
 
