@@ -4,7 +4,7 @@ import searchReducers from './searchReducer'
 import bookReducers from './bookReducers'
 
 const RootReducers = combineReducers({
-    q: searchReducers,
+    search: searchReducers,
     books: bookReducers
 })
 

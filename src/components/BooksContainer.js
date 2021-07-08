@@ -5,8 +5,6 @@ import Book from './Book'
 
 export default function BooksContainer() {
 	const { items: books, totalItems, isLoading } = useSelector((state) => state.books)
-	console.log(`isLoading --> ${isLoading}`);
-
 
 	if (isLoading) {
 		return (
@@ -20,7 +18,7 @@ export default function BooksContainer() {
 	if (books.length === 0) {
 		return (<section className="container booksContainer">
 			<h2>
-				Make your first search
+				Fai la tua prima ricerca
 			</h2>
 		</section>)
 	}

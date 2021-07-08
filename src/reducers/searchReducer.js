@@ -1,8 +1,22 @@
-const searchReducer = (state = "", action) => {
+const searchReducer = (state = {
+    q: '',
+    isError: false
+}, action) => {
     if (action.type === 'SET_Q') {
-        return action.payload
+        return {
+            q: action.payload,
+            isError: false
+        }
     } else if (action.type === 'CLEAR_Q') {
-        return ''
+        return {
+            q: '',
+            isError: false
+        }
+    } else if (action.type === 'THROW_SEARCH_ERROR') {
+        return {
+            ...state,
+            isError: true
+        };
     }
     return state;
 }

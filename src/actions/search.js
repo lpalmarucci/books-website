@@ -12,9 +12,14 @@ const clearQueryString = () => {
     }
 }
 
+const throwSearchError = () => ({
+    type: 'THROW_SEARCH_ERROR'
+})
+
 const actions = {
     setQueryString,
-    clearQueryString
+    clearQueryString,
+    throwSearchError
 }
 
 export default actions

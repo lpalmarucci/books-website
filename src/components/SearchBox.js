@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import { FaAngleDown } from 'react-icons/fa'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,20 +6,22 @@ import actions from '../actions'
 
 export default function SearchBox() {
 
-    const q = useSelector((state) => state.q)
+    const { q, isError: isErrorSearch } = useSelector((state) => state.search);
     const orderBy = useSelector((state) => state.books.orderBy);
-    console.log(orderBy)
+
     const dispatch = useDispatch()
 
-    const showErrorMessage = (text) => {
+    const showErrorMessage = () => {
         // Mostrare messaggio d'errore
-        dispatch(actions.throwSearchError())
+        dispatch(actions.throwSearchError());
+
+
         dispatch(actions.stopLoading());
     }
 
     const handleClick = () => {
         dispatch(actions.setLoading());
-        if (q.length > 0) {
+        if (q.length > 0 && !isErrorSearch) {
             let url = `${window.env.GOOGLE_BOOKS_API}?q=${q}`;
             if (orderBy !== '') {
                 url += `&orderBy=${orderBy}`
@@ -30,7 +32,7 @@ export default function SearchBox() {
                 dispatch(actions.setBooksInfos(res.data))
             })
         } else {
-            showErrorMessage('Inserire un parametro di ricerca');
+            showErrorMessage();
         }
     }
 
@@ -58,6 +60,7 @@ export default function SearchBox() {
                         type="text"
                         placeholder="Inserisci un titolo"
                         name="searchbox"
+                        id="searchbox"
                         onChange={handleChange}
                     />
                     <div style={{
