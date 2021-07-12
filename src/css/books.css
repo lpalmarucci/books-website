@@ -24,10 +24,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: var(--mainTransition);
 }
 
 .book h3{
     padding: 1em 0.5em 0.5em 0.5em;
+}
+
+.book:hover{
+    background-color: var(--light-gray-5) !important;
 }
 
 .book-row{
@@ -37,6 +44,32 @@
     justify-content: space-between;
     margin: 1em;
     flex-grow: 2;
+}
+
+.more{
+    position: absolute;
+    top: 200px;
+    left: 162px;
+    z-index: 9999;
+    cursor:pointer;
+    padding: 1em;
+    font-size: 1.2em;
+    border: 4px solid var(--green);
+    font-weight: 600;
+    transition: var(--mainTransition);
+    opacity: 0;
+    color: black;
+    background-color: var(--light-gray-5);
+}
+
+.more:hover{
+    padding: 1.3em;
+    top: 195px;
+    left: 157px;
+}
+
+.more-hover{
+    opacity: 1;
 }
 
 .book-row b{
