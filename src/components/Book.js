@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 export default class Book extends Component {
 
-
     constructor(props) {
         super(props);
         this.showHideMoreButton = this.showHideMoreButton.bind(this);
@@ -11,11 +10,8 @@ export default class Book extends Component {
         };
     }
 
-
     showHideMoreButton(val) {
-
         this.setState({ showMoreInfo: val })
-
     }
 
     render() {
@@ -57,6 +53,3 @@ export default class Book extends Component {
         )
     }
 }
-
-// <img src={more} alt="Get more info" className="more-img" />
-
