@@ -31,6 +31,15 @@ const bookReducer = (state = {
                 ...state,
                 isLoading: false
             }
+        case 'UPDATE_BOOKS':
+            return {
+                ...state,
+                items: [
+                    ...state.items,
+                    ...action.payload
+                ],
+                isLoading: false
+            }
 
         default:
             return state;

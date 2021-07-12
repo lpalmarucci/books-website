@@ -29,7 +29,16 @@ export default function SearchBox() {
             console.log(`url chiamata api --> ${url}`)
             axios.get(url).then((res) => {
                 console.log(res);
-                dispatch(actions.setBooksInfos(res.data))
+                if (res.data.items) {
+                    dispatch(actions.setBooksInfos(res.data))
+                    dispatch(actions.setLastUrlCalled(url));
+                    const numItemsDisplayed = res.data.items.length < 10
+                        ? res.data.items.length
+                        : 10;
+                    dispatch(actions.setNumItemsDisplayed(numItemsDisplayed))
+                } else {
+                    // Mostrare messaggio di ricerca con zero risultati
+                }
             })
         } else {
             showErrorMessage();

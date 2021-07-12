@@ -20,12 +20,18 @@ const stopLoading = () => ({
 	type: 'STOP_LOADING'
 })
 
+const updateBooks = (newBooks) => ({
+	type: 'UPDATE_BOOKS',
+	payload: newBooks
+})
+
 const actions = {
 	getBooks,
 	setBooksInfos,
 	setLoading,
 	setOrderBy,
-	stopLoading
+	stopLoading,
+	updateBooks
 }
 
 export default actions
