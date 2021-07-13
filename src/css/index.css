@@ -92,6 +92,23 @@ h3 {
   color: var(--green);
 }
 
+.infinitescroll-loading{
+  padding: 2em;
+}
+
+.goup{
+  position: fixed;
+  padding: 0.5em;
+  /* border: 2px solid var(--green); */
+  font-size: 2em;
+  font-weight: 400;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  background-color: white;
+  user-select: none;
+  /* border-radius: 30px; */
+}
 
 @keyframes comparsaFaded{
   from{

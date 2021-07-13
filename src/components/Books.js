@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Book from './Book'
 import propTypes from 'prop-types'
 import { formatDate } from '../lib/date'
@@ -6,23 +6,18 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import actions from '../actions';
+import { BiArrowToTop } from 'react-icons/bi'
 
 
 export default function Books({ books }) {
-    console.log(
-        'boookkkkkksssss ',
-        books
-    );
+    const [
+        showGoUpButton,
+        setGoUpButton
+    ] = useState(false);
+
     const { lastUrlCalled: url, showedItems } = useSelector((state) => state.search);
     const dispatch = useDispatch();
-    console.log(
-        'lastUrlCalled ',
-        url
-    );
-    console.log(
-        'showItems ',
-        showedItems
-    );
+
     const fetchData = () => {
         // Dispatch(actions.setLoading());
         console.log(url);
@@ -48,47 +43,84 @@ export default function Books({ books }) {
         })
     }
 
-    return (
-        <InfiniteScroll
-            dataLength={showedItems}
-            next={fetchData}
-            hasMore={true}
-            loader={<h4>Loading...</h4>}
-            endMessage={
-                <p style={{ textAlign: 'center' }}>
-                    <b>Yay! You have seen it all</b>
-                </p>
+
+    const drawGoUp = () => {
+        if (window.scrollY < 150) {
+            setGoUpButton(false);
+        } else if (!showGoUpButton) {
+            setGoUpButton(true);
+        }
+    }
+
+    const scrollBackUp = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    useEffect(
+        () => {
+            window.addEventListener(
+                'scroll',
+                drawGoUp
+            );
+            return () => {
+                window.removeEventListener(
+                    'scroll',
+                    drawGoUp
+                );
             }
-        >
+        },
+        []
+    );
 
-            <div className="books">
-                {books.map((book) => {
-                    { /* Console.log(book); */ }
-                    const {
-                        publisher,
-                        title,
-                        imageLinks
-                    } = book.volumeInfo;
-                    const authors = book.volumeInfo.authors?.join(', ');
-                    const categories = book.volumeInfo.categories?.join(' ');
-                    let date = '';
-                    if (book.volumeInfo.publishedDate?.length > 0) {
-                        date = formatDate(new Date(book.volumeInfo.publishedDate));
-                    }
+    return (
+        <>
+            <InfiniteScroll
+                dataLength={showedItems}
+                next={fetchData}
+                hasMore={true}
+                loader={<h3 className="infinitescroll-loading">Loading more books...</h3>}
+                endMessage={
+                    <p style={{ textAlign: 'center' }}>
+                        <b>Yay! You have seen it all</b>
+                    </p>
+                }
+            >
 
-                    const image = imageLinks?.smallThumbnail;
-                    const newBook = {
-                        authors,
-                        publisher,
-                        date,
-                        title,
-                        categories,
-                        image
-                    };
-                    return <Book key={book.id} {...newBook} />
-                })}
-            </div>
-        </InfiniteScroll>
+                <div className="books">
+                    {books.map((book) => {
+                        { /* Console.log(book); */ }
+                        const {
+                            publisher,
+                            title,
+                            imageLinks
+                        } = book.volumeInfo;
+                        const authors = book.volumeInfo.authors?.join(', ');
+                        const categories = book.volumeInfo.categories?.join(' ');
+                        let date = '';
+                        if (book.volumeInfo.publishedDate?.length > 0) {
+                            date = formatDate(new Date(book.volumeInfo.publishedDate));
+                        }
+
+                        const image = imageLinks?.smallThumbnail;
+                        const newBook = {
+                            authors,
+                            publisher,
+                            date,
+                            title,
+                            categories,
+                            image
+                        };
+                        return <Book key={book.id} {...newBook} />
+                    })}
+                </div>
+            </InfiniteScroll>
+            {showGoUpButton && <div className="goup" id="goup" onClick={scrollBackUp}>
+                <BiArrowToTop />
+            </div>}
+        </>
     )
 }
 
