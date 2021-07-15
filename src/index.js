@@ -9,6 +9,7 @@ import App from './App';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const store = createStore(
   reducers,
@@ -16,8 +17,12 @@ const store = createStore(
 )
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
+  </>,
   document.getElementById('root')
 );
