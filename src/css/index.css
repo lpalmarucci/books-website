@@ -113,6 +113,11 @@ h3 {
   animation: comparsaFaded 0.5s ease-in-out;
 }
 
+.clear-link{
+  outline: none;
+  text-decoration: none;
+}
+
 @keyframes comparsaFaded{
   from{
     opacity: 0;
@@ -121,4 +126,14 @@ h3 {
   to{
     opacity: 1;
   }
+}
+
+.goback-button{
+  padding: 1em 3em 1em 3em !important;
+}
+
+.goback-icon{
+  font-size: 1.2em;
+  position: absolute;
+  left: 20px;
 }

@@ -63,7 +63,7 @@ export default function SearchBox() {
                             <option value="newest">Newest</option>
                             <option value="relevance">Relevance</option>
                         </select>
-                        <FaAngleDown className="icon-angleDown" />
+                        <FaAngleDown className="icon-angleDown icon" />
                     </div>
                     <input
                         type="text"
@@ -71,6 +71,7 @@ export default function SearchBox() {
                         name="searchbox"
                         id="searchbox"
                         onChange={handleChange}
+                        value={q}
                     />
                     <div style={{
                         position: "absolute",

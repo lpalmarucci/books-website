@@ -1,16 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import spinner from '../images/spinner.svg'
 import Books from './Books'
+import Loader from './Loader'
 
 export default function BooksContainer() {
 	const { items: books, totalItems, isLoading } = useSelector((state) => state.books)
 
 	if (isLoading) {
 		return (
-			<section className="container">
-				<img className="loader" src={spinner} alt="Loading..." width="300" height="300" />
-			</section>
+			<Loader />
 		)
 	}
 

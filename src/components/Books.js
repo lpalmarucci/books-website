@@ -73,7 +73,8 @@ export default function Books({ books }) {
                             date,
                             title,
                             categories,
-                            image
+                            image,
+                            id: book.id
                         };
                         return <Book key={book.id} {...newBook} />
                     })}

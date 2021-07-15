@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class Book extends Component {
 
@@ -18,7 +19,7 @@ export default class Book extends Component {
         return (
             <>
                 <section
-                    className="book"
+                    className="book book-md"
                     onMouseOver={() => {
                         this.showHideMoreButton(true)
                     }}
@@ -44,10 +45,14 @@ export default class Book extends Component {
                     <div className="book-row" style={{ display: 'inline-block' }}>
                         <img src={this.props.image} alt={this.props.title} />
                     </div>
-                    <button className={`more ${this.state.showMoreInfo
-                        ? "more-hover"
-                        : ''}`
-                    }>About it</button>
+                    <Link to={`/book/${this.props.id}`} className="clear-link">
+                        <button style={{ color: `var(--green)` }} className={`more ${this.state.showMoreInfo
+                            ? "more-hover"
+                            : ''}`
+                        }>
+                            About it
+                        </button>
+                    </Link>
                 </section>
             </>
         )

@@ -10,6 +10,8 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
 import { BrowserRouter as Router } from 'react-router-dom'
+import dotenv from 'dotenv'
+dotenv.config();
 
 const store = createStore(
   reducers,
