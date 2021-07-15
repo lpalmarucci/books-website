@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Book from './Book'
 import propTypes from 'prop-types'
 import { formatDate } from '../lib/date'
@@ -6,14 +6,9 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import actions from '../actions';
-import { BiArrowToTop } from 'react-icons/bi'
-
+import ScrollUpButton from './scrollUpButton';
 
 export default function Books({ books }) {
-    const [
-        showGoUpButton,
-        setGoUpButton
-    ] = useState(false);
 
     const { lastUrlCalled: url, showedItems } = useSelector((state) => state.search);
     const dispatch = useDispatch();
@@ -43,38 +38,6 @@ export default function Books({ books }) {
         })
     }
 
-
-    const drawGoUp = () => {
-        if (window.scrollY < 150) {
-            setGoUpButton(false);
-        } else if (!showGoUpButton) {
-            setGoUpButton(true);
-        }
-    }
-
-    const scrollBackUp = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-    useEffect(
-        () => {
-            window.addEventListener(
-                'scroll',
-                drawGoUp
-            );
-            return () => {
-                window.removeEventListener(
-                    'scroll',
-                    drawGoUp
-                );
-            }
-        },
-        []
-    );
-
     return (
         <>
             <InfiniteScroll
@@ -91,7 +54,6 @@ export default function Books({ books }) {
 
                 <div className="books">
                     {books.map((book) => {
-                        { /* Console.log(book); */ }
                         const {
                             publisher,
                             title,
@@ -117,9 +79,7 @@ export default function Books({ books }) {
                     })}
                 </div>
             </InfiniteScroll>
-            {showGoUpButton && <div className="goup" id="goup" onClick={scrollBackUp}>
-                <BiArrowToTop />
-            </div>}
+            <ScrollUpButton />
         </>
     )
 }

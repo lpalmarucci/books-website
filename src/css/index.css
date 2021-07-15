@@ -61,6 +61,11 @@
   --mainBlack: #222;
 }
 
+html, body{
+  /* overflow: hidden; */
+  height: 100%;
+}
+
 body{
   color: var(--mainBlack);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -99,15 +104,12 @@ h3 {
 .goup{
   position: fixed;
   padding: 0.5em;
-  /* border: 2px solid var(--green); */
   font-size: 2em;
   font-weight: 400;
   right: 20px;
   bottom: 20px;
   cursor: pointer;
-  background-color: white;
   user-select: none;
-  /* border-radius: 30px; */
 }
 
 @keyframes comparsaFaded{
