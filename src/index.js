@@ -10,20 +10,36 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
 import { BrowserRouter as Router } from 'react-router-dom'
-import dotenv from 'dotenv'
-dotenv.config();
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'
 
+
+const persistConfig = {
+  key: 'root',
+  storage
+}
+
+
+const persistedReducer = persistReducer(
+  persistConfig,
+  reducers
+)
 const store = createStore(
-  reducers,
+  persistedReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
+
+const persistor = persistStore(store);
 
 ReactDOM.render(
   <>
     <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
+          <App />
+        </Router>
+      </PersistGate>
     </Provider>
   </>,
   document.getElementById('root')

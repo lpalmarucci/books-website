@@ -1,29 +1,40 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
+import { useSelector } from 'react-redux';
 
 export default function BookContainerBody(props) {
     const [
         isLoading,
         setIsLoading
-    ] = React.useState(false);
+    ] = useState(false);
     const [
         book,
         setBook
-    ] = React.useState(false);
+    ] = useState(false);
+
+    const books = useSelector((state) => state.books.items);
 
     // Inserire nello stato l'url (anche se non è una bella cosa)
 
 
     useEffect(
         () => {
-            console.log(window.env.GOOGLE_BOOKS_API);
-            setIsLoading(true);
-            axios.get(url).then((res) => {
-                console.log(res);
 
-                setIsLoading(false);
-            })
+            setIsLoading(true);
+            console.log(books);
+            const filtered = books.filter((book) => book.id === props.id)
+
+            console.log(filtered);
+
+            /*
+             * Axios.get(url).then((res) => {
+             *     console.log(res);
+             */
+
+            /*
+             *     SetIsLoading(false);
+             * })
+             */
         },
         []
     )
