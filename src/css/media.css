@@ -14,6 +14,10 @@
     .searchbox-item{
       top: 66px;
     }
+
+    .goback-button{
+      top: 0px;
+    }
   
     .searchbox-group input{
       padding-left: 1.5em;

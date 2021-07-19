@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import Books from './Books'
+import Books from './Book/Books'
 import Loader from './Loader'
 
 export default function BooksContainer() {

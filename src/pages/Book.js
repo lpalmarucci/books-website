@@ -4,10 +4,15 @@ import BookContainerBody from '../components/Book/BookContainerBody'
 
 export default function Book(props) {
 
+    console.log(
+        `props --> `,
+        props
+    );
+
     return (
         <div className="container">
             <BookContainerHeader />
-            <BookContainerBody id={props.match.params.id} />
+            <BookContainerBody matchProps={props.match} />
         </div>
     )
 }

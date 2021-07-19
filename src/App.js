@@ -10,7 +10,7 @@ export default function App() {
     <>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/book/:id" component={Book} exact />
+        <Route path="/book/:id" component={Book} />
         <Route path="/books/saved" component={SavedBooks} exact />
         <Route component={Error} />
       </Switch>

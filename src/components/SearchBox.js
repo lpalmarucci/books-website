@@ -3,6 +3,7 @@ import { FaAngleDown } from 'react-icons/fa'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import actions from '../actions'
+import env from 'react-dotenv'
 
 export default function SearchBox() {
 
@@ -22,7 +23,7 @@ export default function SearchBox() {
     const handleClick = () => {
         dispatch(actions.setLoading());
         if (q.length > 0 && !isErrorSearch) {
-            let url = `${window.env.GOOGLE_BOOKS_API}?q=${q}`;
+            let url = `${env.GOOGLE_BOOKS_API}?q=${q}`;
             if (orderBy !== '') {
                 url += `&orderBy=${orderBy}`
             }

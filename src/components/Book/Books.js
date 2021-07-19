@@ -1,12 +1,12 @@
 import React from 'react'
-import Book from './Book'
+import BookInfo from './BookInfo'
 import propTypes from 'prop-types'
-import { formatDate } from '../lib/date'
+import { formatDate } from '../../lib/date'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-import actions from '../actions';
-import ScrollUpButton from './scrollUpButton';
+import actions from '../../actions';
+import ScrollUpButton from '../scrollUpButton';
 
 export default function Books({ books }) {
 
@@ -17,10 +17,6 @@ export default function Books({ books }) {
         // Dispatch(actions.setLoading());
         console.log(url);
         axios.get(`${url}&startIndex=${showedItems}`).then((res) => {
-            console.log(
-                'chiamata successiva ---> ',
-                res
-            );
 
             if (res.data.items) {
                 dispatch(actions.updateBooks(res.data.items));
@@ -37,6 +33,8 @@ export default function Books({ books }) {
 
         })
     }
+
+    // Molto probabilmente devo gestire il parametro hasMore
 
     return (
         <>
@@ -76,7 +74,7 @@ export default function Books({ books }) {
                             image,
                             id: book.id
                         };
-                        return <Book key={book.id} {...newBook} />
+                        return <BookInfo key={book.id} {...newBook} />
                     })}
                 </div>
             </InfiniteScroll>
