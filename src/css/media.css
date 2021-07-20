@@ -11,8 +11,13 @@
 
 
 @media screen and (max-width: 800px){
-    .searchbox-item{
+    .button,
+    .link{
       top: 66px;
+    }
+
+    .link{
+      top:50px;
     }
 
     .goback-button{

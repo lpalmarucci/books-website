@@ -54,9 +54,9 @@
 }
 
 .more{
-    position: absolute;
-    top: 200px;
-    left: 162px;
+    /* position: absolute; */
+    /* top: 200px; */
+    /* left: 162px; */
     z-index: 9999;
     cursor:pointer;
     padding: 1em;
@@ -95,6 +95,11 @@
 .book-lg main{
     margin: 1.5em 1em 1em 1em;
 }
+
+.section-title{
+    padding: 1em;
+}
+
 .book-section:after{
     content: '';
     display: inline-block;

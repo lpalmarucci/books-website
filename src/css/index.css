@@ -137,3 +137,32 @@ h3 {
   position: absolute;
   left: 20px;
 }
+
+.button,.link{
+  appearance: none;
+  outline: none;
+  font-weight: 600;
+  padding: 1em 2em;
+  border-radius: 30px;
+  height: 56px;
+  transition: var(--mainTransition);
+  border: none;
+  box-shadow: none;
+  opacity: 1;
+  background-color: var(--green);
+  color: white !important;
+  z-index: 9999;
+  cursor: pointer;
+  position: relative;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.link{
+  padding: 1.2em 2.2em;
+  font-size: 1em;
+}
+
+.button:hover{
+  background-color: var(--green-hover);
+}

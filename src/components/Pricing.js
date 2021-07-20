@@ -24,9 +24,9 @@ export default class Pricing extends Component {
                 {price}
 
                 {this.props.saleInfo.buyLink && <div className="container">
-                    <button type="button" href={this.props.saleInfo.buyLink} className="searchbox-item">
+                    <a href={this.props.saleInfo.buyLink} target="_blank" className="link clear-link" rel="noreferrer">
                         <span>Buy Now</span>
-                    </button>
+                    </a>
                 </div>}
             </>
         )

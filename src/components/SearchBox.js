@@ -59,7 +59,7 @@ export default function SearchBox() {
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className="searchbox-group">
                     <div style={{ position: 'absolute' }}>
-                        <select className="searchbox-item search-orderby" defaultValue="orderby" onChange={handleChangeOrderBy}>
+                        <select className="button search-orderby" defaultValue="orderby" onChange={handleChangeOrderBy}>
                             <option value="orderby" disabled>Order by</option>
                             <option value="newest">Newest</option>
                             <option value="relevance">Relevance</option>
@@ -82,7 +82,7 @@ export default function SearchBox() {
                             <button
                                 type="submit"
                                 onClick={handleClick}
-                                className="searchbox-item"
+                                className="button"
                             >Invia</button>
 
                         </div>
