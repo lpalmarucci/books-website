@@ -46,9 +46,13 @@ export default function ScrollUpButton() {
 
     return (
         <>
-            {showGoUpButton && <div className="goup" id="goup" onClick={scrollBackUp}>
+            <div className="goup" id="goup" onClick={scrollBackUp} style={{
+                opacity: showGoUpButton
+                    ? 1
+                    : 0
+            }}>
                 <BiArrowToTop />
-            </div>}
+            </div>
         </>
     )
 }
