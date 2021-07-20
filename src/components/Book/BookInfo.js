@@ -7,12 +7,16 @@ export default class Book extends Component {
         super(props);
         this.showHideMoreButton = this.showHideMoreButton.bind(this);
         this.state = {
-            showMoreInfo: false
+            hoverClass: ''
         };
     }
 
     showHideMoreButton(val) {
-        this.setState({ showMoreInfo: val })
+        this.setState({
+            hoverClass: val
+                ? 'outline-button-hover'
+                : ''
+        });
     }
 
     render() {
@@ -46,17 +50,14 @@ export default class Book extends Component {
                         <img src={this.props.image} alt={this.props.title} />
                     </div>
                     <div className="hover-buttons">
-
                         <Link to={`/book/${this.props.id}`} className="clear-link">
-                            <button style={{ color: `var(--green)` }} className={`more ${this.state.showMoreInfo
-                                ? "more-hover"
-                                : ''}`
+                            <button className={`outline-button ${this.state.hoverClass}`
                             }>
                                 About it
                             </button>
                         </Link>
-                        <button className="clear-link">
-
+                        <button className={`outline-button clear-links ${this.state.hoverClass}`}>
+                            Save
                         </button>
                     </div>
                 </section>
