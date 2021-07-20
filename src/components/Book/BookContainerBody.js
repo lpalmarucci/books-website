@@ -20,13 +20,13 @@ export default function BookContainerBody(props) {
     const [
         isMobile,
         setIsMobile
-    ] = useState(false);
+    ] = useState(null);
 
     const books = useSelector((state) => state.books.items);
 
     // Inserire nello stato l'url (anche se non è una bella cosa)
-    const detectIfMobileWidth = (e) => {
-        if (e.target.innerWidth < 768) {
+    const detectIfMobileWidth = (obj) => {
+        if (obj.innerWidth < 768) {
             setIsMobile(true);
         } else {
             setIsMobile(false);
@@ -35,6 +35,8 @@ export default function BookContainerBody(props) {
 
     useEffect(() => {
         setIsLoading(true);
+
+        detectIfMobileWidth(window);
 
         const filtered = books.filter((book) => book.id === props.matchProps?.params?.id)
         console.log(
@@ -47,8 +49,10 @@ export default function BookContainerBody(props) {
 
         window.addEventListener(
             'resize',
-            detectIfMobileWidth
+            (e) => detectIfMobileWidth(e.target)
         )
+
+        console.log(window);
 
         /*
          * Return window.removeEventListener(
