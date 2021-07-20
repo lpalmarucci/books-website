@@ -166,3 +166,31 @@ h3 {
 .button:hover{
   background-color: var(--green-hover);
 }
+
+
+.outline-button{
+  z-index: 9999;
+  cursor:pointer;
+  padding: 1.1em;
+  font-size: 1.1em;
+  border: 2px solid var(--green);
+  border-radius: 33px;
+  font-weight: 600;
+  transition: var(--mainTransition);
+  opacity: 0;
+  background-color: var(--green);
+  color: white;
+  letter-spacing: 0.1px;
+}
+
+.outline-button-hover{
+  opacity: 1;
+}
+
+.hover-buttons{
+  position: absolute;
+  display: grid;
+  grid-template-rows: 1fr;
+  row-gap: 1em;
+  top: 35%;
+}
