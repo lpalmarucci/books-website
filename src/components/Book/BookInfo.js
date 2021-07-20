@@ -46,9 +46,9 @@ export default class Book extends Component {
                         <b>Released at </b><span>{this.props.date}</span>
                     </div>
 
-                    <div className="book-row" style={{ display: 'inline-block' }}>
+                    {this.props.image && <div className="book-row" style={{ display: 'inline-block' }}>
                         <img src={this.props.image} alt={this.props.title} />
-                    </div>
+                    </div>}
                     <div className="hover-buttons">
                         <Link to={`/book/${this.props.id}`} className="clear-link">
                             <button className={`outline-button ${this.state.hoverClass}`

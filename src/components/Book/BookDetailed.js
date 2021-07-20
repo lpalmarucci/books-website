@@ -19,7 +19,9 @@ export default function BookDetailed(props) {
         <>
             <header>
                 <h1><i>Information about</i> {title}</h1>
-                <img src={image} alt="Copertina" />
+                {image
+                    ? <img src={image} alt="Copertina" />
+                    : <h3>No preview available</h3>}
             </header>
             <main>
                 <div className="book-body">
