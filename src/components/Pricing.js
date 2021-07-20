@@ -6,11 +6,29 @@ export default class Pricing extends Component {
         super(props);
     }
 
-    render() {
-        return (
-            <div>
 
+    render() {
+        let price = <div></div>
+        if (this.props.saleInfo?.listPrice?.amount) {
+            price = <div className="container book-row">
+                <h4>Prezzo: </h4>
+                <span>€{this.props.saleInfo.listPrice.amount}</span>
             </div>
+        } else {
+            price = <div className="container">
+                <h3>No price available</h3>
+            </div>
+        }
+        return (
+            <>
+                {price}
+
+                {this.props.saleInfo.buyLink && <div className="container">
+                    <button type="button" href={this.props.saleInfo.buyLink} className="searchbox-item">
+                        <span>Buy Now</span>
+                    </button>
+                </div>}
+            </>
         )
     }
 }
