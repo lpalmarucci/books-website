@@ -64,7 +64,7 @@ export default function Books({ books }) {
                             date = formatDate(new Date(book.volumeInfo.publishedDate));
                         }
 
-                        const image = imageLinks?.smallThumbnail;
+                        const image = imageLinks?.thumbnail;
                         const newBook = {
                             authors,
                             publisher,
