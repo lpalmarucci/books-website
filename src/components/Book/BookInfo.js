@@ -5,10 +5,11 @@ export default class Book extends Component {
 
     constructor(props) {
         super(props);
-        this.showHideMoreButton = this.showHideMoreButton.bind(this);
         this.state = {
             hoverClass: ''
         };
+        this.showHideMoreButton = this.showHideMoreButton.bind(this);
+        // this.saveBook = this.saveBook.bind(this);
     }
 
     showHideMoreButton(val) {
@@ -17,6 +18,27 @@ export default class Book extends Component {
                 ? 'outline-button-hover'
                 : ''
         });
+    }
+
+    saveBook(id) {
+
+
+        const books = JSON.parse(localStorage.getItem('books'));
+        console.log(
+            'localstorage ',
+            books
+        );
+
+
+        localStorage.setItem(
+            'books',
+            books
+                ? JSON.stringify([
+                    ...books,
+                    { id }
+                ])
+                : JSON.stringify([{ id }])
+        )
     }
 
     render() {
@@ -56,7 +78,7 @@ export default class Book extends Component {
                                 About it
                             </button>
                         </Link>
-                        <button className={`outline-button clear-links ${this.state.hoverClass}`}>
+                        <button className={`outline-button clear-links ${this.state.hoverClass}`} onClick={() => this.saveBook(this.props.id)}>
                             Save
                         </button>
                     </div>
