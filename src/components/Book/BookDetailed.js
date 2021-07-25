@@ -29,12 +29,16 @@ export default function BookDetailed(props) {
                         <b>{title}</b> è un libro scritto da {authors} pubblicato nel {year}.
                         Appartiene al genere <b>{categories}</b> e conta {numPages} pagine
                     </span>
-                    {description && <div className="book-section">
-                        <h3 className="section-title">Trama</h3>
-                        <div>
-                            {description}
-                        </div>
-                    </div>}
+                    {description && <article className="book-section">
+                        <header>
+                            <h3 className="section-title">Trama</h3>
+                        </header>
+                        <section>
+                            <div>
+                                {description}
+                            </div>
+                        </section>
+                    </article>}
                 </div>
 
             </main>

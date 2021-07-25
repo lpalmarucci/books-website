@@ -21,14 +21,7 @@ export default class Book extends Component {
     }
 
     saveBook(id) {
-
-
         const books = JSON.parse(localStorage.getItem('books'));
-        console.log(
-            'localstorage ',
-            books
-        );
-
 
         localStorage.setItem(
             'books',

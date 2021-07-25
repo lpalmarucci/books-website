@@ -39,11 +39,6 @@ export default function ScrollUpButton() {
         []
     );
 
-    console.log(
-        'showGoUpButton',
-        showGoUpButton
-    );
-
     return (
         <>
             <div className="goup" id="goup" onClick={scrollBackUp} style={{

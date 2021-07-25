@@ -38,11 +38,7 @@ export default function BookContainerBody(props) {
 
         detectIfMobileWidth(window);
 
-        const filtered = books.filter((book) => book.id === props.matchProps?.params?.id)
-        console.log(
-            'filtered --> ',
-            filtered
-        );
+        const filtered = books.filter((book) => book.id === props.id)
         setBook(filtered[0]);
 
         setIsLoading(false);
@@ -51,8 +47,6 @@ export default function BookContainerBody(props) {
             'resize',
             (e) => detectIfMobileWidth(e.target)
         )
-
-        console.log(window);
 
         /*
          * Return window.removeEventListener(
@@ -65,10 +59,6 @@ export default function BookContainerBody(props) {
     if (book === {} || isLoading) {
         return <Loader />
     }
-    console.log(
-        'book --> ',
-        book
-    );
     // Se la dimensione è in modalità mobile, cambiare la classe in book-md
     return (
 

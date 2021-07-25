@@ -4,15 +4,14 @@ import BookContainerBody from '../components/Book/BookContainerBody'
 
 export default function Book(props) {
 
-    console.log(
-        `props --> `,
-        props
-    );
+    const draw = props.drawGoBack || props.drawGoBack != undefined
+        ? props.drawGoBack
+        : true;
 
     return (
         <div className="container">
-            <BookContainerHeader />
-            <BookContainerBody matchProps={props.match} />
+            <BookContainerHeader drawGoBack={draw} />
+            <BookContainerBody id={props.match?.params?.id || props.id} />
         </div>
     )
 }

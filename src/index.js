@@ -5,6 +5,7 @@ import './css/index.css';
 import './css/books.css';
 import './css/search.css';
 import './css/media.css';
+import './css/menu.css'
 import App from './App';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'

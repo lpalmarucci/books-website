@@ -15,7 +15,6 @@ export default function Books({ books }) {
 
     const fetchData = () => {
         // Dispatch(actions.setLoading());
-        console.log(url);
         axios.get(`${url}&startIndex=${showedItems}`).then((res) => {
 
             if (res.data.items) {
@@ -24,10 +23,6 @@ export default function Books({ books }) {
                 numNewItems += res.data.items.length < 10
                     ? res.data.items.length
                     : 10;
-                console.log(
-                    'how many new items?',
-                    numNewItems
-                );
                 dispatch(actions.setNumItemsDisplayed(numNewItems));
             }
 

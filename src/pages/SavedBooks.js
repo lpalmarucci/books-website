@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import GoBackButton from '../components/GoBackButton';
 import Loader from '../components/Loader'
+import Book from './Book';
 
 export default class SavedBooks extends Component {
 
@@ -41,11 +42,11 @@ export default class SavedBooks extends Component {
                 <GoBackButton destination={'/'} />
                 <article className="container">
                     <header>
-                        <h2>Libri salvati</h2>
+                        <h1>Libri salvati</h1>
                     </header>
                     <section className="container">
                         {this.state.books.map((book) => (
-                            <div key={book.id}>{book.id}</div>
+                            <Book key={book.id} id={book.id} drawGoBack={false} />
                         ))}
                     </section>
                 </article>

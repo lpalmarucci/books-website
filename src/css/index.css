@@ -195,3 +195,15 @@ h3 {
   row-gap: 1em;
   top: 35%;
 }
+
+.bordered-button{
+  cursor:pointer;
+  border: 2px solid var(--green);
+  color: var(--green);
+  letter-spacing: 0.2px;
+  transition: var(--mainTransition);
+  padding: .8em 2em;
+  font-size: 1.1em;
+  background-color: transparent;
+  border-radius: 55px;
+}

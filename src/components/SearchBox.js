@@ -26,9 +26,7 @@ export default function SearchBox() {
             if (orderBy !== '') {
                 url += `&orderBy=${orderBy}`
             }
-            console.log(`url chiamata api --> ${url}`)
             axios.get(url).then((res) => {
-                console.log(res);
                 if (res.data.items) {
                     dispatch(actions.setBooksInfos(res.data))
                     dispatch(actions.setLastUrlCalled(url));

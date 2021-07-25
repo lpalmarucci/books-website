@@ -1,10 +1,16 @@
 import React from 'react'
 import GoBackButton from '../GoBackButton'
 
-export default function BookContainerHeader() {
+export default function BookContainerHeader(props) {
+
+    console.log(props.drawGoBack)
+
     return (
         <header>
-            <GoBackButton destination={'/'} />
+            {props.drawGoBack
+                ? <GoBackButton destination={'/'} />
+                : ''}
+
         </header>
     )
 }
