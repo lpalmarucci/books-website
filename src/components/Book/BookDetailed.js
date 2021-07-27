@@ -1,4 +1,5 @@
 import React from 'react'
+import propTypes from 'prop-types'
 
 export default function BookDetailed(props) {
 
@@ -44,4 +45,18 @@ export default function BookDetailed(props) {
             </main>
         </>
     )
+}
+
+BookDetailed.propTypes = {
+    book: propTypes.shape({
+        volumeInfo: propTypes.shape({
+            title: propTypes.string.isRequired,
+            imageLinks: propTypes.string.isRequired,
+            description: propTypes.string.isRequired,
+            authors: propTypes.instanceOf(Array) || propTypes.instanceOf(String),
+            categories: propTypes.instanceOf(Array),
+            publishedDate: propTypes.instanceOf(Date),
+            pageCount: propTypes.number.isRequired
+        })
+    }).isRequired
 }

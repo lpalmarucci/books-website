@@ -1,12 +1,9 @@
 {
   "name": "books-website",
-  "gh-pages": "http://lpalmarucci.github.io/books-website",
+  "homepage": "http://lpalmarucci.github.io/books-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "env-cmd": "^10.1.0",
     "gh-pages": "^3.2.3",
@@ -18,16 +15,15 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
-    "redux-persist": "^6.0.0",
-    "web-vitals": "^1.0.1"
+    "redux-persist": "^6.0.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run buyild",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

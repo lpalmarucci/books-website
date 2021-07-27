@@ -38,7 +38,7 @@ export default function BookContainerBody(props) {
 
         detectIfMobileWidth(window);
 
-        const filtered = books.filter((book) => book.id === props.id)
+        const filtered = books.filter((item) => item.id === props.bookId)
         setBook(filtered[0]);
 
         setIsLoading(false);
@@ -60,17 +60,22 @@ export default function BookContainerBody(props) {
         return <Loader />
     }
     // Se la dimensione è in modalità mobile, cambiare la classe in book-md
+
+    console.log(
+        'book --> ',
+        book
+    );
     return (
 
         <section className={`container book ${isMobile
             ? 'book-md'
             : 'book-lg'}`}>
-            <BookDetailed book={book} />
-            <Pricing saleInfo={book.saleInfo} />
+            {book.volumeInfo != undefined && <BookDetailed book={book} />}
+            {/* {book.saleInfo != undefined && <Pricing saleInfo={book.saleInfo} />} */}
         </section>
     )
 }
 
-Book.propTypes = {
-    id: PropTypes.string.isRequired
+BookContainerBody.propTypes = {
+    bookId: PropTypes.string.isRequired
 }

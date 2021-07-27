@@ -1,4 +1,4 @@
-let actions = {};
+const actions = {};
 
 actions.getBooks = () => ({
 	type: 'GET_BOOKS'

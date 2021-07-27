@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 
 export default class Pricing extends Component {
 
@@ -31,4 +32,11 @@ export default class Pricing extends Component {
             </>
         )
     }
+}
+
+Pricing.propTypes = {
+    saleInfo: propTypes.shape({
+        listPrice: propTypes.shape({ amount: propTypes.number.isRequired }),
+        buyLink: propTypes.string.isRequired
+    })
 }

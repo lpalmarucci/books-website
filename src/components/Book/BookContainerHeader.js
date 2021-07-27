@@ -1,5 +1,6 @@
 import React from 'react'
 import GoBackButton from '../GoBackButton'
+import propTypes from 'prop-types'
 
 export default function BookContainerHeader(props) {
 
@@ -13,4 +14,8 @@ export default function BookContainerHeader(props) {
 
         </header>
     )
+}
+
+BookContainerHeader.propTypes = {
+    drawGoBack: propTypes.instanceOf(Boolean).isRequired
 }
