@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import DeleteSavedBook from './DeleteSavedBook';
 
 export default function BookDetailed(props) {
 
@@ -18,11 +19,13 @@ export default function BookDetailed(props) {
     const image = imageLinks?.smallThumbnail;
     return (
         <>
-            <header>
+            <header style={{ position: 'relative' }}>
                 <h1><i>Information about</i> {title}</h1>
                 {image
                     ? <img src={image} alt="Copertina" />
                     : <h3>No preview available</h3>}
+                {props.drawDeleteButton && <DeleteSavedBook onClickFn={() => this.deleteBook(book.id)} />}
+
             </header>
             <main>
                 <div className="book-body">
@@ -41,7 +44,6 @@ export default function BookDetailed(props) {
                         </section>
                     </article>}
                 </div>
-
             </main>
         </>
     )
@@ -58,5 +60,6 @@ BookDetailed.propTypes = {
             publishedDate: propTypes.instanceOf(Date),
             pageCount: propTypes.number.isRequired
         })
-    }).isRequired
+    }).isRequired,
+    drawDeleteButton: propTypes.bool.isRequired
 }

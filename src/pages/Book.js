@@ -8,10 +8,12 @@ export default function Book(props) {
         ? props.drawGoBack
         : true;
 
+    const bookId = props.match?.params?.id || props.id;
+
     return (
         <div className="container">
-            <BookContainerHeader drawGoBack={draw} />
-            <BookContainerBody bookId={props.match?.params?.id || props.id} />
+            <BookContainerHeader drawGoBack={draw} bookId={bookId} />
+            <BookContainerBody bookId={bookId} drawDeleteButton={props.drawDeleteButton} />
         </div>
     )
 }

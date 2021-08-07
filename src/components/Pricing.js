@@ -21,7 +21,7 @@ export default class Pricing extends Component {
             </div>
         }
         return (
-            <>
+            <footer className="flex-container">
                 {price}
 
                 {this.props.saleInfo.buyLink && <div className="container">
@@ -29,7 +29,7 @@ export default class Pricing extends Component {
                         <span>Buy Now</span>
                     </a>
                 </div>}
-            </>
+            </footer>
         )
     }
 }

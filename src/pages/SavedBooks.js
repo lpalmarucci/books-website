@@ -47,17 +47,25 @@ export default class SavedBooks extends Component {
     deleteBook(id) {
         let books = this.state.books.slice();
         books = books.filter((book) => book.id !== id);
-        console.log()
-        this.setState({
-            books,
-            isLoading: false
-        });
 
-        // Devo aggiornare anche il localStorage
+        /*
+         * this.setState({
+         *     books,
+         *     isLoading: false
+         * });
+         */
+
+        const idBooks = books.map((book) => ({ id: book.id }))
+
+        localStorage.removeItem('books');
+        localStorage.setItem(
+            'books',
+            JSON.stringify(idBooks)
+        );
+
     }
 
     render() {
-        console.log(this.state.books);
         if (this.state.isLoading) {
             return <Loader />
         }
@@ -73,9 +81,8 @@ export default class SavedBooks extends Component {
                         {this.state.books.length === 0
                             ? <h2>Nessun libro salvato</h2>
                             : this.state.books.map((book) => (
-                                <article key={book.id} style={{ position: 'relative' }}>
-                                    <DeleteSavedBook onClickFn={() => this.deleteBook(book.id)} />
-                                    <Book id={book.id} drawGoBack={false} />
+                                <article key={book.id} className="relative-parent">
+                                    <Book id={book.id} drawGoBack={false} drawDeleteButton={true} />
                                 </article>
                             ))
                         }

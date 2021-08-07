@@ -48,30 +48,24 @@ export default function BookContainerBody(props) {
             (e) => detectIfMobileWidth(e.target)
         )
 
-        /*
-         * Return window.removeEventListener(
-         *     'resize',
-         *     detectIfMobileWidth
-         * )
-         */
+
+        return window.removeEventListener(
+            'resize',
+            detectIfMobileWidth
+        )
+
     })
 
     if (book === {} || isLoading) {
         return <Loader />
     }
-    // Se la dimensione è in modalità mobile, cambiare la classe in book-md
-
-    console.log(
-        'book --> ',
-        book
-    );
     return (
 
         <section className={`container book ${isMobile
             ? 'book-md'
             : 'book-lg'}`}>
-            {book.volumeInfo != undefined && <BookDetailed book={book} />}
-            {/* {book.saleInfo != undefined && <Pricing saleInfo={book.saleInfo} />} */}
+            {book?.volumeInfo != undefined && <BookDetailed book={book} drawDeleteButton={props.drawDeleteButton} />}
+            {book?.saleInfo != undefined && <Pricing saleInfo={book.saleInfo} />}
         </section>
     )
 }

@@ -1,11 +1,9 @@
 import React from 'react'
 import GoBackButton from '../GoBackButton'
 import propTypes from 'prop-types'
+import DeleteSavedBook from './DeleteSavedBook'
 
 export default function BookContainerHeader(props) {
-
-    console.log(props.drawGoBack)
-
     return (
         <header>
             {props.drawGoBack
