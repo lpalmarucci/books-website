@@ -16,7 +16,7 @@ export default function BookDetailed(props) {
         year = new Date(props.book.volumeInfo.publishedDate).getFullYear();
     }
     const numPages = props.book.volumeInfo?.pageCount;
-    const image = imageLinks?.smallThumbnail;
+    const image = imageLinks?.thumbnail;
     return (
         <>
             <header style={{ position: 'relative' }}>
