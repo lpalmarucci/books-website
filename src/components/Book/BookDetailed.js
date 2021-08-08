@@ -24,7 +24,9 @@ export default function BookDetailed(props) {
                 {image
                     ? <img src={image} alt="Copertina" />
                     : <h3>No preview available</h3>}
-                {props.drawDeleteButton && <DeleteSavedBook onClickFn={() => this.deleteBook(book.id)} />}
+                {props.drawDeleteButton &&
+                    <DeleteSavedBook bookId={props.book.id} />
+                }
 
             </header>
             <main>
@@ -51,6 +53,7 @@ export default function BookDetailed(props) {
 
 BookDetailed.propTypes = {
     book: propTypes.shape({
+        id: propTypes.string.isRequired,
         volumeInfo: propTypes.shape({
             title: propTypes.string.isRequired,
             imageLinks: propTypes.string.isRequired,
