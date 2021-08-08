@@ -10,7 +10,7 @@ export default class Menu extends Component {
         return (
             <header className="container menu-container">
                 {this.props.items.map((item) => (
-                    <nav>
+                    <nav key={item.id}>
                         <Link to={item.url} className="clear-link">
                             <button className="bordered-button" style={{ opacity: 1 }}>
                                 {item.displayName}

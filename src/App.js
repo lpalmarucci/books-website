@@ -6,12 +6,14 @@ import Error from './pages/Error';
 import Home from './pages/Home';
 import SavedBooks from './pages/SavedBooks';
 
-const items = [
+const menuItems = [
   {
+    id: 1,
     displayName: 'Home',
     url: '/'
   },
   {
+    id: 2,
     displayName: 'Saved',
     url: '/books/saved'
   }
@@ -20,7 +22,7 @@ const items = [
 export default function App() {
   return (
     <>
-      <Menu items={items} />
+      <Menu items={menuItems} />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/book/:id" component={Book} />
