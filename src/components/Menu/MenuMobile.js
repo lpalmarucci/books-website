@@ -17,23 +17,21 @@ export default function MenuMobile(props) {
             ? 'menu-mobile-container-open'
             : ''} `}>
             <Hamburger toggled={isOpen} toggle={setIsOpen} color="#35d77e" />
-            {isOpen
-                ? <CSSTransition in={isOpen} timeout={500} classNames="fadeIn">
-                    <div className="menu-mobile-body">
-                        {
-                            props.items.map((item) => (
-                                <nav key={item.id} onClick={() => setIsOpen(false)}>
-                                    <Link to={item.url} className="clear-link">
-                                        <button className="bordered-button" style={{ opacity: 1 }}>
-                                            {item.displayName}
-                                        </button>
-                                    </Link>
-                                </nav>
-                            ))
-                        }
-                    </div>
-                </CSSTransition>
-                : ''}
+            <div className={`menu-mobile-body ${isOpen
+                ? ''
+                : 'hidden'}`}>
+                {
+                    props.items.map((item) => (
+                        <nav key={item.id} onClick={() => setIsOpen(false)}>
+                            <Link to={item.url} className="clear-link">
+                                <button className="bordered-button" style={{ opacity: 1 }}>
+                                    {item.displayName}
+                                </button>
+                            </Link>
+                        </nav>
+                    ))
+                }
+            </div>
         </nav>
     )
 }
