@@ -13,6 +13,7 @@
     border-radius: 30px;
     position: relative;
     text-align: center;
+    z-index: 1;
 }
   
 .searchbox-group input{
@@ -29,6 +30,7 @@
     font-size: 1.1em;
     padding-left: 156px;
     padding-right: 156px;
+    z-index: 1;
 }
   
 .search-orderby{

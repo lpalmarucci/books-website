@@ -29,7 +29,7 @@ const persistedReducer = persistReducer(
 
 /*
  * const store = createStore(
- *   persistedReducer,
+ *   reducers ,
  *   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
  * )
  */

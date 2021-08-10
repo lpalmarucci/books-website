@@ -152,7 +152,7 @@ h3 {
   opacity: 1;
   background-color: var(--green);
   color: white !important;
-  z-index: 9999;
+  z-index: 4;
   cursor: pointer;
   position: relative;
   font-size: 0.9em;

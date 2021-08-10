@@ -5,6 +5,7 @@ import Book from '../../pages/Book';
 import PropTypes from 'prop-types'
 import BookDetailed from './BookDetailed';
 import Pricing from '../Pricing'
+import CheckMobileResolution from '../CheckMobileResolution'
 
 export default function BookContainerBody(props) {
 
@@ -24,46 +25,30 @@ export default function BookContainerBody(props) {
 
     const books = useSelector((state) => state.books.items);
 
-    // Inserire nello stato l'url (anche se non è una bella cosa)
-    const detectIfMobileWidth = (obj) => {
-        if (obj.innerWidth < 768) {
-            setIsMobile(true);
-        } else {
-            setIsMobile(false);
-        }
-    }
-
     useEffect(() => {
         setIsLoading(true);
-
-        detectIfMobileWidth(window);
 
         const filtered = books.filter((item) => item.id === props.bookId)
         setBook(filtered[0]);
 
         setIsLoading(false);
-
-        window.addEventListener(
-            'resize',
-            (e) => detectIfMobileWidth(e.target)
-        )
-
-
-        return window.removeEventListener(
-            'resize',
-            detectIfMobileWidth
-        )
-
     })
 
     if (book === {} || isLoading) {
         return <Loader />
     }
+
+    console.log(
+        'isMobile ',
+        isMobile
+    );
+
     return (
 
         <section className={`container book ${isMobile
             ? 'book-md'
             : 'book-lg'}`}>
+            <CheckMobileResolution setIsMobile={setIsMobile} />
             {book?.volumeInfo != undefined && <BookDetailed book={book} drawDeleteButton={props.drawDeleteButton} />}
             {book?.saleInfo != undefined && <Pricing saleInfo={book.saleInfo} />}
         </section>

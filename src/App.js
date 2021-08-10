@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Menu from './components/Menu';
+import Menu from './components/Menu/Menu';
 import Book from './pages/Book';
 import Error from './pages/Error';
 import Home from './pages/Home';
