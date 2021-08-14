@@ -19,7 +19,7 @@ export default function BookDetailed(props) {
     const image = imageLinks?.thumbnail;
     return (
         <>
-            <header style={{ position: 'relative' }}>
+            <header className="relative-parent">
                 <h1><i>Information about</i> {title}</h1>
                 {image
                     ? <img src={image} alt="Copertina" />

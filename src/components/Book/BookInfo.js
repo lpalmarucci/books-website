@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import propTypes from 'prop-types'
+import Popup from '../Popup';
 
 export default class Book extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            hoverClass: ''
+            hoverClass: '',
+            showSavedMsg: false,
+            textPopup: ''
         };
+        this.popupRef = React.createRef();
         this.showHideMoreButton = this.showHideMoreButton.bind(this);
-        // this.saveBook = this.saveBook.bind(this);
+        this.showPopup = this.showPopup.bind(this);
+        this.handleAnimationEnd = this.handleAnimationEnd.bind(this);
     }
 
     showHideMoreButton(val) {
@@ -20,18 +26,43 @@ export default class Book extends Component {
         });
     }
 
+    showPopup(text) {
+        console.log(this.state.showSavedMsg);
+        if (!this.state.showSavedMsg) {
+            this.setState({
+                showSavedMsg: true,
+                textPopup: text
+            })
+        }
+    }
+
+    handleAnimationEnd() {
+        this.setState(
+            { showSavedMsg: false },
+            () => console.log(this.state)
+        );
+    }
+
     saveBook(id) {
         const books = JSON.parse(localStorage.getItem('books'));
 
-        localStorage.setItem(
-            'books',
-            books
-                ? JSON.stringify([
-                    ...books,
-                    { id }
-                ])
-                : JSON.stringify([{ id }])
-        )
+        const alreadySaved = books.find((book) => book.id === id);
+
+        if (alreadySaved) {
+            this.showPopup('Libro già inserito nella raccolta');
+
+        } else {
+            localStorage.setItem(
+                'books',
+                books
+                    ? JSON.stringify([
+                        ...books,
+                        { id }
+                    ])
+                    : JSON.stringify([{ id }])
+            )
+            this.showPopup('Libro aggiunto alla raccolta');
+        }
     }
 
     render() {
@@ -61,6 +92,8 @@ export default class Book extends Component {
                         <b>Released at </b><span>{this.props.date}</span>
                     </div>
 
+                    {this.state.showSavedMsg && <Popup lineaRef={this.popupRef} text={this.state.textPopup} handleAnimationEnd={this.handleAnimationEnd} />}
+
                     {this.props.image && <div className="book-row" style={{ display: 'inline-block' }}>
                         <img src={this.props.image} alt={this.props.title} />
                     </div>}
@@ -79,4 +112,14 @@ export default class Book extends Component {
             </>
         )
     }
+}
+
+Book.propTypes = {
+    authors: propTypes.string.isRequired,
+    title: propTypes.string.isRequired,
+    categories: propTypes.string.isRequired,
+    publisher: propTypes.string.isRequired,
+    date: propTypes.string.isRequired,
+    image: propTypes.string.isRequired,
+    id: propTypes.string.isRequired
 }

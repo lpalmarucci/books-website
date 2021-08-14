@@ -52,7 +52,7 @@ export default function SearchBox() {
     }
 
     return (
-        <div className="container searchbox-container">
+        <header className="container searchbox-container">
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className="searchbox-group">
                     <div style={{ position: 'absolute' }}>
@@ -86,6 +86,6 @@ export default function SearchBox() {
                     </div>
                 </div>
             </form>
-        </div>
+        </header>
     )
 }

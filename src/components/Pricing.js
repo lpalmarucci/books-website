@@ -3,11 +3,6 @@ import propTypes from 'prop-types'
 
 export default class Pricing extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
-
     render() {
         let price = <div></div>
         if (this.props.saleInfo?.listPrice?.amount) {

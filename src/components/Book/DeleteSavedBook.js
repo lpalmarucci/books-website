@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import close from '../../images/icons/close.svg'
 import propTypes from 'prop-types'
 import { useSavedBooks } from '../../context/SavedBooksContext'

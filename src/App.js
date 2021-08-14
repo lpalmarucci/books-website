@@ -1,10 +1,8 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import Menu from './components/Menu/Menu';
-import Book from './pages/Book';
-import Error from './pages/Error';
-import Home from './pages/Home';
-import SavedBooks from './pages/SavedBooks';
+import SavedPopupContext, { PopupContext } from './context/SavedPopupContext'
+import Popup from './components/Popup';
+import Routes from './components/Routes';
 
 const menuItems = [
   {
@@ -23,12 +21,21 @@ export default function App() {
   return (
     <>
       <Menu items={menuItems} />
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/book/:id" component={Book} />
-        <Route path="/books/saved" component={SavedBooks} exact />
-        <Route component={Error} />
-      </Switch>
+      <SavedPopupContext>
+        <PopupContext.Consumer>
+          {({ showPopup }) => {
+            if (showPopup) {
+              return <React.Fragment>
+                <Routes />
+                <Popup />
+              </React.Fragment>
+            }
+            return <React.Fragment>
+              <Routes />
+            </React.Fragment>;
+          }}
+        </PopupContext.Consumer>
+      </SavedPopupContext>
     </>
   );
 }

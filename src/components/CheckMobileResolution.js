@@ -5,19 +5,13 @@ import propTypes from 'prop-types'
 export default function CheckMobileResolution({ setIsMobile }) {
 
     const detectIfMobileWidth = (obj) => {
-        console.log(
-            'obj ',
-            obj.innerWidth
-        )
         return obj.innerWidth < 768;
     }
 
     const setMobileResolution = (e) => {
         const isMobile = detectIfMobileWidth(e);
-        console.log(
-            'isMobile ',
-            isMobile
-        )
+
+
         setIsMobile(isMobile);
     }
 

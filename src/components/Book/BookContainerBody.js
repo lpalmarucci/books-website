@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
 import { useSelector } from 'react-redux';
-import Book from '../../pages/Book';
 import PropTypes from 'prop-types'
 import BookDetailed from './BookDetailed';
 import Pricing from '../Pricing'
@@ -39,7 +38,7 @@ export default function BookContainerBody(props) {
     }
 
     console.log(
-        'isMobile ',
+        'booksContainerBody --> Book ',
         isMobile
     );
 
@@ -49,12 +48,13 @@ export default function BookContainerBody(props) {
             ? 'book-md'
             : 'book-lg'}`}>
             <CheckMobileResolution setIsMobile={setIsMobile} />
-            {book?.volumeInfo != undefined && <BookDetailed book={book} drawDeleteButton={props.drawDeleteButton} />}
-            {book?.saleInfo != undefined && <Pricing saleInfo={book.saleInfo} />}
+            {book?.volumeInfo && <BookDetailed book={book} drawDeleteButton={props.drawDeleteButton} />}
+            {book?.saleInfo && <Pricing saleInfo={book.saleInfo} />}
         </section>
     )
 }
 
 BookContainerBody.propTypes = {
-    bookId: PropTypes.string.isRequired
+    bookId: PropTypes.string.isRequired,
+    drawDeleteButton: PropTypes.bool.isRequired
 }

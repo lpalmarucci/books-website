@@ -1,7 +1,6 @@
 import React from 'react'
 import { Squash as Hamburger } from 'hamburger-react'
 import { Link } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group'
 import propTypes from 'prop-types';
 
 export default function MenuMobile(props) {

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Loader from '../components/Loader'
+import propTypes from 'prop-types'
 
 export const SavedBooksContext = React.createContext();
 
@@ -33,9 +34,10 @@ export function SavedBooksProvider(props) {
             if (booksList) {
                 const newBooks = booksList.map((book) => {
                     return new Promise((resolve, reject) => {
-                        return axios.get(`${process.env.REACT_APP_GOOGLE_BOOKS_API}/${book.id}`).then((res) => {
-                            if (res.status != 200) {
-                                reject('Error while getting information about the book');
+
+                        axios.get(`${process.env.REACT_APP_GOOGLE_BOOKS_API}/${book.id}`).then((res) => {
+                            if (res.status !== 200) {
+                                reject(new Error('Error while getting information about the book'));
                             }
                             resolve(res.data);
                         })
@@ -44,7 +46,10 @@ export function SavedBooksProvider(props) {
                 Promise.all(newBooks).then((res) => {
                     setBooks(res);
                     setLoading(false);
-                });
+                }).
+                    catch((err) => {
+                        console.error(err);
+                    });
             } else {
                 setLoading(false);
             }
@@ -78,3 +83,6 @@ export function SavedBooksProvider(props) {
     )
 }
 
+SavedBooksProvider.propTypes = {
+    children: propTypes.instanceOf(Object).isRequired
+}
