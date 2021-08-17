@@ -10,7 +10,9 @@ export default function Routes() {
         <>
             <Switch>
                 <Route path="/" component={Home} exact />
-                <Route path="/book/:id" component={Book} />
+                <Route path="/book/:id" exact>
+                    <Book drawGoBack={true} />
+                </Route>
                 <Route path="/books/saved" component={SavedBooks} exact />
                 <Route component={Error} />
             </Switch>

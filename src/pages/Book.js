@@ -2,12 +2,20 @@ import React from 'react'
 import BookContainerHeader from '../components/Book/BookContainerHeader'
 import BookContainerBody from '../components/Book/BookContainerBody'
 import propTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
 
 export default function Book(props) {
 
-    const draw = props.drawGoBack
+    const urlParams = useParams();
 
-    const bookId = props.match?.params?.id || props.id;
+    let draw;
+    if (props.drawGoBack || props.drawGoBack !== null) {
+        draw = props.drawGoBack
+    } else {
+        draw = true;
+    }
+
+    const bookId = urlParams?.id || props.id;
 
     return (
         <div className="container">

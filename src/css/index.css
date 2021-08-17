@@ -236,15 +236,16 @@ h3 {
 .popup{
   margin: 0;
   position: fixed !important;
-  top: 85%;
+  top: 90%;
   left: 25%;
-  padding: 1em 1em .2em 1em;
+  padding: .5em;
+  padding-bottom: .2em;
   z-index: 99999;
   background-color: var(--green-300);
   border-radius: .3em;
   color: var(--white);
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1.8em;
   width: 50%;
   transition: var(--mainTransition);
   text-transform: initial;
