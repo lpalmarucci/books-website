@@ -10,7 +10,7 @@ import App from './App';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
@@ -43,9 +43,9 @@ ReactDOM.render(
   <>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Router>
+        <HashRouter>
           <App />
-        </Router>
+        </HashRouter>
       </PersistGate>
     </Provider>
   </>,
