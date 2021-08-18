@@ -37,11 +37,6 @@ export default function BookContainerBody(props) {
         return <Loader />
     }
 
-    console.log(
-        'booksContainerBody --> Book ',
-        isMobile
-    );
-
     return (
 
         <section className={`container book ${isMobile

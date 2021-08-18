@@ -9,15 +9,11 @@ export default function CheckMobileResolution({ setIsMobile }) {
     }
 
     const setMobileResolution = (e) => {
-        const isMobile = detectIfMobileWidth(e);
-
-
-        setIsMobile(isMobile);
+        setIsMobile(detectIfMobileWidth(e));
     }
 
     React.useEffect(
         () => {
-
             setMobileResolution(window);
 
             window.addEventListener(

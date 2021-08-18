@@ -1,6 +1,6 @@
 {
   "name": "books-website",
-  "homepage": "http://lpalmarucci.github.io/books-website",
+  "homepage": "https://lpalmarucci.github.io/books-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

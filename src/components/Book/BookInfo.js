@@ -27,7 +27,6 @@ export default class Book extends Component {
     }
 
     showPopup(text) {
-        console.log(this.state.showSavedMsg);
         if (!this.state.showSavedMsg) {
             this.setState({
                 showSavedMsg: true,
@@ -37,10 +36,7 @@ export default class Book extends Component {
     }
 
     handleAnimationEnd() {
-        this.setState(
-            { showSavedMsg: false },
-            () => console.log(this.state)
-        );
+        this.setState({ showSavedMsg: false });
     }
 
     saveBook(id) {
