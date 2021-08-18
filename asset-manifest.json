@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/books-website/static/css/main.19de6f37.chunk.css",
+    "main.js": "/books-website/static/js/main.48896107.chunk.js",
+    "main.js.map": "/books-website/static/js/main.48896107.chunk.js.map",
+    "runtime-main.js": "/books-website/static/js/runtime-main.b6a838eb.js",
+    "runtime-main.js.map": "/books-website/static/js/runtime-main.b6a838eb.js.map",
+    "static/js/2.6ef1daa2.chunk.js": "/books-website/static/js/2.6ef1daa2.chunk.js",
+    "static/js/2.6ef1daa2.chunk.js.map": "/books-website/static/js/2.6ef1daa2.chunk.js.map",
+    "index.html": "/books-website/index.html",
+    "static/css/main.19de6f37.chunk.css.map": "/books-website/static/css/main.19de6f37.chunk.css.map",
+    "static/js/2.6ef1daa2.chunk.js.LICENSE.txt": "/books-website/static/js/2.6ef1daa2.chunk.js.LICENSE.txt",
+    "static/media/close.c39ccb73.svg": "/books-website/static/media/close.c39ccb73.svg",
+    "static/media/spinner.d3911028.svg": "/books-website/static/media/spinner.d3911028.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b6a838eb.js",
+    "static/js/2.6ef1daa2.chunk.js",
+    "static/css/main.19de6f37.chunk.css",
+    "static/js/main.48896107.chunk.js"
+  ]
+}
