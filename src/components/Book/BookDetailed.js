@@ -32,7 +32,17 @@ export default function BookDetailed(props) {
             <main>
                 <div className="book-body">
                     <span className="book-section">
-                        <b>{title}</b> è un libro scritto da {authors} pubblicato nel {year}.
+                        <b>{title}</b> è un libro {authors
+                            ? `scritto da ${authors}`
+                            : ''} {
+                            authors && year
+                                ? ' e '
+                                : ''
+                        } {
+                            year
+                                ? `pubblicato nel ${year}.`
+                                : ''
+                        }
                         Appartiene al genere <b>{categories}</b> e conta {numPages} pagine
                     </span>
                     {description && <article className="book-section">

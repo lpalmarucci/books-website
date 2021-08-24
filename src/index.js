@@ -27,14 +27,14 @@ const persistedReducer = persistReducer(
   reducers
 )
 
-/*
- * const store = createStore(
- *   reducers ,
- *   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
- * )
- */
 
-const store = createStore(persistedReducer)
+const store = createStore(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+
+// const store = createStore(persistedReducer)
 
 
 const persistor = persistStore(store);
@@ -42,11 +42,11 @@ const persistor = persistStore(store);
 ReactDOM.render(
   <>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <HashRouter>
-          <App />
-        </HashRouter>
-      </PersistGate>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
+      <HashRouter>
+        <App />
+      </HashRouter>
+      {/* </PersistGate> */}
     </Provider>
   </>,
   document.getElementById('root')

@@ -24,9 +24,7 @@ export default function BooksContainer() {
 	return (
 		<section className="container booksContainer">
 			<h2>La tua ricerca ha prodotto {totalItems} risultati</h2>
-
 			<Books books={books} />
-
 		</section>
 	)
 }
