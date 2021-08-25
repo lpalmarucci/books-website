@@ -11,21 +11,28 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
 import { HashRouter } from 'react-router-dom'
-import { PersistGate } from 'redux-persist/integration/react'
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'
+
+/*
+ * import { PersistGate } from 'redux-persist/integration/react'
+ * import { persistStore, persistReducer } from 'redux-persist';
+ * import storage from 'redux-persist/lib/storage'
+ */
 
 
-const persistConfig = {
-  key: 'root',
-  storage
-}
+/*
+ * const persistConfig = {
+ *   key: 'root',
+ *   storage
+ * }
+ */
 
 
-const persistedReducer = persistReducer(
-  persistConfig,
-  reducers
-)
+/*
+ * const persistedReducer = persistReducer(
+ *   persistConfig,
+ *   reducers
+ * )
+ */
 
 
 const store = createStore(
@@ -37,7 +44,7 @@ const store = createStore(
 // const store = createStore(persistedReducer)
 
 
-const persistor = persistStore(store);
+// const persistor = persistStore(store);
 
 ReactDOM.render(
   <>
