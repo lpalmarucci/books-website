@@ -1,10 +1,10 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root{
+:root {
   --clr-primary: #2680c0;
   --clr-primary-dark: hsl(205, 100%, 21%);
   --clr-primary-light: hsl(205, 84%, 85%);
@@ -61,15 +61,25 @@
   --mainBlack: #222;
 }
 
-html, body{
+html,
+body {
   /* overflow: hidden; */
   height: 100%;
 }
 
-body{
+body {
   color: var(--mainBlack);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.4;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  /* font-family: "Open Sans", sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {
@@ -85,214 +95,4 @@ h3 {
   font-size: 1.5em;
   line-height: 1;
   margin-bottom: 1em;
-}
-
-.container{
-  padding: 20px;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.loader{
-  /* background-color: var(--green); */
-  color: var(--green);
-}
-
-.infinitescroll-loading{
-  padding: 2em;
-}
-
-.goup{
-  position: fixed;
-  padding: 0.5em;
-  font-size: 2em;
-  font-weight: 400;
-  right: 20px;
-  bottom: 20px;
-  cursor: pointer;
-  user-select: none;
-  transition: opacity 0.5s linear;
-}
-
-.clear-link{
-  outline: none;
-  text-decoration: none;
-}
-
-@keyframes comparsaFaded{
-  from{
-    opacity: 0;
-  }
-
-  to{
-    opacity: 1;
-  }
-}
-
-.goback-button{
-  padding: 1em 2em 1em 3em !important;
-}
-
-.goback-icon{
-  font-size: 1.2em;
-  position: absolute;
-  left: 20px;
-}
-
-.button,.link{
-  appearance: none;
-  outline: none;
-  font-weight: 600;
-  padding: 1em 2em;
-  border-radius: 30px;
-  height: 56px;
-  transition: var(--mainTransition);
-  border: none;
-  box-shadow: none;
-  opacity: 1;
-  background-color: var(--green);
-  color: white !important;
-  z-index: 4;
-  cursor: pointer;
-  position: relative;
-  font-size: 0.9em;
-  text-align: center;
-}
-
-.link{
-  padding: 1.2em 2.2em;
-  font-size: 1em;
-}
-
-.button:hover{
-  background-color: var(--green-hover);
-}
-
-
-.outline-button{
-  z-index: 9999;
-  cursor:pointer;
-  padding: 1.1em;
-  font-size: 1.1em;
-  border: 2px solid var(--green);
-  border-radius: 33px;
-  font-weight: 600;
-  transition: var(--mainTransition);
-  opacity: 0;
-  background-color: var(--green);
-  color: white;
-  letter-spacing: 0.1px;
-}
-
-.outline-button-hover{
-  opacity: 1;
-}
-
-.hover-buttons{
-  position: absolute;
-  display: grid;
-  grid-template-rows: 1fr;
-  row-gap: 1em;
-  top: 35%;
-}
-
-.bordered-button{
-  cursor:pointer;
-  border: 2px solid var(--green);
-  color: var(--green);
-  letter-spacing: 0.2px;
-  transition: var(--mainTransition);
-  padding: .8em 2em;
-  font-size: 1.1em;
-  background-color: transparent;
-  border-radius: 55px;
-}
-
-.flex-container{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hidden{
-  display: none !important;
-}
-
-/* .linea{
-  width: 100%;
-  height: 10px;
-  display: block;
-  background-color: var(--grey);
-  animation: lineaSlideSinistra 3s;
-  animation-fill-mode: forwards;
-}
-
-.linea:hover{
-  animation-play-state: paused;
-} */
-
-.popup{
-  margin: 0;
-  position: fixed !important;
-  top: 90%;
-  left: 25%;
-  padding: .5em;
-  padding-bottom: .2em;
-  z-index: 99999;
-  background-color: var(--green-300);
-  border-radius: .3em;
-  color: var(--white);
-  font-weight: 700;
-  font-size: 1.8em;
-  width: 50%;
-  transition: var(--mainTransition);
-  text-transform: initial;
-  animation: scomparsa 2s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes scomparsa {
-  0%,80%{
-    opacity: 1;
-  }
-
-  100%{
-    opacity: 0;
-  }
-}
-
-.popup:hover{
-  animation-play-state: paused;
-}
-
-.popup::after{
-  content: '';
-  display: block;
-  margin-top: .3em;
-  width: 100%;
-  height: 10px;
-  background-color: var(--white);
-  animation: lineaSlideSinistra 2s;
-  animation-fill-mode: forwards;
-  border-radius: 1em;
-}
-
-.popup:hover::after{
-  animation-play-state: paused;
-}
-
-@keyframes lineaSlideSinistra {
-  0%{
-    width: 100%;
-    opacity: 1;
-  }
-  80%{
-    opacity: 1;
-  }
-  100%{
-    width: 0;
-    opacity: 0;
-  }
 }

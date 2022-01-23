@@ -1,40 +1,43 @@
-import React from 'react'
-import { Squash as Hamburger } from 'hamburger-react'
-import { Link } from 'react-router-dom';
-import propTypes from 'prop-types';
+import React from "react"
+import { Link } from "react-router-dom"
+import propTypes from "prop-types"
+import styled from "styled-components"
+import hamburger from "../../images/icons/hamburger.svg"
+import Tooltip from "../Tooltip/Tooltip"
 
 export default function MenuMobile(props) {
+  const [isOpen, setIsOpen] = React.useState(false)
 
+  console.log(isOpen)
 
-    const [
-        isOpen,
-        setIsOpen
-    ] = React.useState(false);
+  return (
+    <MenuMobileWrapper>
+      <Hamburger
+        onClick={() => setIsOpen(isOpen => !isOpen)}
+        color="#35d77e"
+        src={hamburger}
+      />
 
-    return (
-        <nav className={`menu-mobile-container ${isOpen
-            ? 'menu-mobile-container-open'
-            : ''} `}>
-            <Hamburger toggled={isOpen} toggle={setIsOpen} color="#35d77e" />
-            <div className={`menu-mobile-body ${isOpen
-                ? ''
-                : 'hidden'}`}>
-                {
-                    props.items.map((item) => (
-                        <nav key={item.id} onClick={() => setIsOpen(false)}>
-                            <Link to={item.url} className="clear-link">
-                                <button className="bordered-button" style={{ opacity: 1 }}>
-                                    {item.displayName}
-                                </button>
-                            </Link>
-                        </nav>
-                    ))
-                }
-            </div>
-        </nav>
-    )
+      <Tooltip isOpen={isOpen} menuItems={props.menuItems} />
+    </MenuMobileWrapper>
+  )
 }
 
 MenuMobile.propTypes = {
-    items: propTypes.arrayOf(propTypes.object).isRequired
+  items: propTypes.arrayOf(propTypes.object).isRequired,
 }
+
+const MenuMobileWrapper = styled.div`
+  display: none;
+  position: relative;
+
+  @media (max-width: 880px) {
+    display: block;
+  }
+`
+
+const Hamburger = styled.img`
+  :hover {
+    cursor: pointer;
+  }
+`
