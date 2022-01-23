@@ -64,7 +64,7 @@ const MenuItem = styled(Item)`
   background-color: #845ec2;
 
   :hover {
-    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.3),
+    box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.3),
       inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2);
   }
 
