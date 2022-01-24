@@ -117,7 +117,6 @@ const Button = styled.button`
   border: none;
   background-color: #be93fd;
   padding: 10px 20px;
-  box-shadow: inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.7);
   outline: none;
   color: white;
   font-weight: 800;
@@ -128,6 +127,8 @@ const Button = styled.button`
     /* box-shadow: inset 0px 2px 10px rgba(255, 255, 255, 0.5); */
 
     filter: hue-rotate(10deg);
+    box-shadow: inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.7),
+      inset 0px 2px 10px rgba(255, 255, 255, 0.5);
   }
 `
 
@@ -151,8 +152,14 @@ const OrderBy = styled.select`
   border: none;
   border-radius: 20px;
   outline: none;
-  box-shadow: inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.7);
   cursor: pointer;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  :hover {
+    filter: hue-rotate(10deg);
+    box-shadow: inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.7),
+      inset 0px 2px 10px rgba(255, 255, 255, 0.5);
+  }
 `
 
 const Searchbar = styled.input`

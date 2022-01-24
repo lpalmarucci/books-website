@@ -11,15 +11,11 @@ const menuItems = [
 
 export default function Menu() {
   return (
-    <Wrapper
-    //   className={`container menu-container ${
-    //     isMobile ? "menu-container-mobile" : ""
-    //   }`}
-    >
+    <Wrapper>
       <ContentWrapper count={menuItems.length}>
-        <Title>
+        <Logo>
           <Link to="/">Books</Link>
-        </Title>
+        </Logo>
         <MenuDesktop menuItems={menuItems} />
       </ContentWrapper>
     </Wrapper>
@@ -49,12 +45,7 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
 `
 
-const Title = styled.h2`
-  background: linear-gradient(120deg, #c599ff 0%, rgb(217, 190, 253) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  cursor: pointer;
+const Logo = styled.h5`
   font-size: 40px;
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -63,6 +54,14 @@ const Title = styled.h2`
   }
 
   :hover {
-    filter: hue-rotate(20deg);
+    filter: hue-rotate(180deg);
+  }
+
+  > a {
+    background: linear-gradient(120deg, var(--yellow) 20%, #fae49d 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 `

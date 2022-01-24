@@ -4,10 +4,12 @@ import SavedPopupContext, { PopupContext } from "./context/SavedPopupContext"
 import Popup from "./components/Popup"
 import Routes from "./components/Routes"
 import styled from "styled-components"
+import WaveBackground from "./components/background/WaveBackground"
 
 export default function App() {
   return (
     <AppWrapper>
+      <WaveBackground />
       <Menu />
       <ContentWrapper>
         <SavedPopupContext>
@@ -37,7 +39,6 @@ export default function App() {
 const AppWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background: linear-gradient(180deg, #845ec2 0%, #fff 100%);
 `
 
 const ContentWrapper = styled.div`

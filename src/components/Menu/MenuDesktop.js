@@ -1,7 +1,7 @@
 import React from "react"
 import propTypes from "prop-types"
 import { Link } from "react-router-dom"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import MenuMobile from "./MenuMobile"
 
 export default function MenuDesktop({ menuItems }) {
@@ -54,19 +54,19 @@ const Item = styled.div`
   border-radius: 20px;
   font-size: 20px;
   font-weight: 600;
-  transition: 0.5s ease-out;
+  transition: all 0.3s ease-out;
   border: 1px solid rgba(255, 255, 255, 0.7);
+  :hover {
+    box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.3),
+      inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2);
+  }
 `
 
 const MenuItem = styled(Item)`
   justify-content: end;
   z-index: 9;
-  background-color: #845ec2;
-
-  :hover {
-    box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.3),
-      inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2);
-  }
+  background: linear-gradient(120deg, var(--green) 0%, var(--green-300) 100%);
+  filter: brightness(120%);
 
   @media (max-width: 880px) {
     display: none !important;
@@ -83,17 +83,24 @@ const MenuItemBackground = styled(Item)`
   transform: rotate(-10deg);
   transform-origin: bottom right;
   z-index: -1;
-  background: linear-gradient(120deg, #be93fd 0%, #faccff 100%);
+  background: linear-gradient(120deg, var(--green) 0%, var(--green-300) 100%);
+  user-select: none;
+  outline: none;
+  pointer-events: none;
 `
 
 const MenuItemWrapper = styled.div`
   position: relative;
   backdrop-filter: blur(100px);
   width: 100%;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   :hover {
+    /* transition-delay: 0.3s; */
+    transform: scale(1.1);
     ${MenuItemBackground} {
       transform: rotate(0deg) translateY(-10px);
+      visibility: hidden;
     }
   }
 `

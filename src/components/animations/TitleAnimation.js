@@ -15,7 +15,7 @@ const animation = keyframes`
 
     100%{
         transform: translateY(10px);
-        letter-spacing: .02em;
+        letter-spacing: .015em;
         filter: hue-rotate(20deg);
     }
 `
@@ -24,7 +24,7 @@ const Title = styled.h1`
   font-size: 70px;
   color: white;
   padding: 10px;
-  background: linear-gradient(120deg, #1c045d 0%, #412a83 100%);
+  background: linear-gradient(120deg, var(--yellow) 20%, #fff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
