@@ -91,6 +91,17 @@ const SearchWrapper = styled.div`
 
 const Form = styled.form`
   position: relative;
+
+  @media (max-width: 880px) {
+    > div {
+      top: 60px;
+    }
+
+    > input {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
 `
 
 const SubmitWrapper = styled.div`
@@ -151,6 +162,7 @@ const Searchbar = styled.input`
   padding-right: 100px;
   height: 50px;
   font-size: 20px;
+  font-weight: 500;
   border: none;
   border-radius: 20px;
   outline: none;
