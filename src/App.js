@@ -5,18 +5,10 @@ import Popup from "./components/Popup"
 import Routes from "./components/Routes"
 import styled from "styled-components"
 
-const menuItems = [
-  {
-    id: 1,
-    displayName: "Saved",
-    url: "/books/saved",
-  },
-]
-
 export default function App() {
   return (
     <AppWrapper>
-      <Menu menuItems={menuItems} />
+      <Menu />
       <ContentWrapper>
         <SavedPopupContext>
           <PopupContext.Consumer>
