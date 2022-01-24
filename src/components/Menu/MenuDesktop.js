@@ -6,7 +6,7 @@ import MenuMobile from "./MenuMobile"
 
 export default function MenuDesktop({ menuItems }) {
   return (
-    <MenuWrapper>
+    <MenuWrapper count={menuItems.length}>
       {menuItems.map((item, idx) => (
         <Link to={item.url} key={item.id}>
           <MenuItemWrapper>
@@ -25,16 +25,15 @@ MenuDesktop.propTypes = {
 }
 
 const MenuWrapper = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
+  justify-self: end;
   display: grid;
-  gap: 150px;
+  gap: 50px;
   grid-template-columns: repeat(${props => props.count}, 1fr);
   justify-content: center;
   justify-items: center;
-  position: absolute;
+  /* position: absolute;
   right: 50px;
-  top: 60px;
+  top: 60px; */
 
   @media (max-width: 880px) {
     > a {
@@ -42,6 +41,7 @@ const MenuWrapper = styled.div`
     }
     gap: 0px;
     grid-template-columns: auto;
+    /* top: 30px; */
   }
 `
 

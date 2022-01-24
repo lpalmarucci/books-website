@@ -33,17 +33,21 @@ Menu.propTypes = {
 const Wrapper = styled.header`
   width: 100%;
   padding: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 
   @media (max-width: 880px) {
-    padding: 30px;
+    padding-top: 30px;
   }
 `
 
-const ContentWrapper = styled.div``
+const ContentWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 100px auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  justify-content: space-between;
+`
 
 const Title = styled.h2`
   background: linear-gradient(120deg, #c599ff 0%, rgb(217, 190, 253) 100%);
@@ -51,4 +55,14 @@ const Title = styled.h2`
   -webkit-background-clip: text;
   color: transparent;
   cursor: pointer;
+  font-size: 40px;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  @media (max-width: 880px) {
+    font-size: 30px;
+  }
+
+  :hover {
+    filter: hue-rotate(20deg);
+  }
 `
