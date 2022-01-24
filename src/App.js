@@ -17,25 +17,27 @@ export default function App() {
   return (
     <AppWrapper>
       <Menu menuItems={menuItems} />
-      <SavedPopupContext>
-        <PopupContext.Consumer>
-          {({ showPopup }) => {
-            if (showPopup) {
+      <ContentWrapper>
+        <SavedPopupContext>
+          <PopupContext.Consumer>
+            {({ showPopup }) => {
+              if (showPopup) {
+                return (
+                  <React.Fragment>
+                    <Routes />
+                    <Popup />
+                  </React.Fragment>
+                )
+              }
               return (
                 <React.Fragment>
                   <Routes />
-                  <Popup />
                 </React.Fragment>
               )
-            }
-            return (
-              <React.Fragment>
-                <Routes />
-              </React.Fragment>
-            )
-          }}
-        </PopupContext.Consumer>
-      </SavedPopupContext>
+            }}
+          </PopupContext.Consumer>
+        </SavedPopupContext>
+      </ContentWrapper>
     </AppWrapper>
   )
 }
@@ -43,5 +45,9 @@ export default function App() {
 const AppWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: #845ec2;
+  background: linear-gradient(180deg, #845ec2 0%, #fff 100%);
+`
+
+const ContentWrapper = styled.div`
+  margin-top: 50px;
 `
