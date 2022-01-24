@@ -8,24 +8,6 @@ import Tooltip from "../Tooltip/Tooltip"
 export default function MenuMobile(props) {
   const [isOpen, setIsOpen] = React.useState(false)
 
-  const handleCloseTooltip = ev => {
-    ev.preventDefault()
-    console.log(ev.target.closest(".tooltip"))
-    if (!ev.target.closest(".tooltip")) {
-      setIsOpen(false)
-    } else {
-      setIsOpen(true)
-    }
-  }
-
-  React.useEffect(() => {
-    if (isOpen) {
-      window.addEventListener("click", handleCloseTooltip)
-    }
-
-    return () => window.removeEventListener("click", handleCloseTooltip)
-  }, [isOpen])
-
   return (
     <MenuMobileWrapper>
       <Hamburger onClick={() => setIsOpen(isOpen => !isOpen)} src={hamburger} />

@@ -3,6 +3,24 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 export default function Tooltip(props) {
+  const handleCloseTooltip = ev => {
+    ev.preventDefault()
+    console.log(ev.target.closest(".tooltip"))
+    if (!ev.target.closest(".tooltip")) {
+      props.setIsOpen(false)
+    } else {
+      props.setIsOpen(true)
+    }
+  }
+
+  React.useEffect(() => {
+    if (props.isOpen) {
+      window.addEventListener("click", handleCloseTooltip)
+    }
+
+    return () => window.removeEventListener("click", handleCloseTooltip)
+  }, [props.isOpen])
+
   return (
     <Wrapper
       className="tooltip"
@@ -49,16 +67,21 @@ const Wrapper = styled.div`
 `
 
 const MenuItem = styled.div`
+  position: relative;
   cursor: pointer;
   color: white;
-  padding: 20px 50px;
+  padding: 15px 50px;
   border-radius: 20px;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-  ::after {
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     content: "";
-    width: 180px;
-    height: 2px;
+    width: 100%;
+    height: 1px;
+    color: white;
     background-color: rgba(255, 255, 255, 0.7);
   }
 
