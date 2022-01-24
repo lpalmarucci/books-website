@@ -6,7 +6,7 @@ export default function Tooltip(props) {
   const handleCloseTooltip = ev => {
     ev.preventDefault()
     console.log(ev.target.closest(".tooltip"))
-    if (!ev.target.closest(".tooltip")) {
+    if (!ev.target.closest(".tooltip") || ev.target.closest(".tooltip > a")) {
       props.setIsOpen(false)
     } else {
       props.setIsOpen(true)
@@ -71,7 +71,6 @@ const MenuItem = styled.div`
   cursor: pointer;
   color: white;
   padding: 15px 50px;
-  border-radius: 20px;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   &:after {
@@ -86,8 +85,6 @@ const MenuItem = styled.div`
   }
 
   :hover {
-    box-shadow: inset 0px -5px 30px rgba(255, 255, 255, 0.2),
-      0px 8px 30px rgba(0, 0, 0, 0.1),
-      inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.8);
+    transform: translateX(10px);
   }
 `
