@@ -1,10 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 export default function Tooltip(props) {
   return (
-    <Wrapper isOpen={props.isOpen} count={props.menuItems.length}>
+    <Wrapper
+      className="tooltip"
+      isOpen={props.isOpen}
+      count={props.menuItems.length}
+    >
       {props.menuItems.map(item => (
         <Link to={item.url} key={item.id}>
           <MenuItem>{item.displayName}</MenuItem>
@@ -36,6 +40,12 @@ const Wrapper = styled.div`
     props.isOpen
       ? "skewY(0deg) translateY(0px)"
       : "translateY(-30px) skewY(-10deg) "};
+
+  @media (max-width: 880px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `
 
 const MenuItem = styled.div`
@@ -44,6 +54,13 @@ const MenuItem = styled.div`
   padding: 20px 50px;
   border-radius: 20px;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  ::after {
+    content: "";
+    width: 180px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
 
   :hover {
     box-shadow: inset 0px -5px 30px rgba(255, 255, 255, 0.2),

@@ -4,7 +4,12 @@ import MenuDesktop from "./MenuDesktop"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
-export default function Menu({ menuItems }) {
+const menuItems = [
+  { id: 1, displayName: "Search", url: "/search" },
+  { id: 2, displayName: "Saved", url: "/books/saved" },
+]
+
+export default function Menu() {
   return (
     <Wrapper
     //   className={`container menu-container ${
@@ -32,6 +37,10 @@ const Wrapper = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 880px) {
+    padding: 30px;
+  }
 `
 
 const ContentWrapper = styled.div``
