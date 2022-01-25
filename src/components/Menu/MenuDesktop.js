@@ -47,7 +47,7 @@ const MenuWrapper = styled.div`
 const Item = styled.div`
   width: 122px;
   text-align: center;
-  padding: 10px 30px;
+  padding: 15px 30px;
   color: white;
   border: none;
   border-radius: 20px;
