@@ -11,7 +11,6 @@ export default function MenuDesktop({ menuItems }) {
         <Link to={item.url} key={item.id}>
           <MenuItemWrapper>
             <MenuItem>{item.displayName}</MenuItem>
-            <MenuItemBackground className="card-back" />
           </MenuItemWrapper>
         </Link>
       ))}
@@ -48,24 +47,19 @@ const MenuWrapper = styled.div`
 const Item = styled.div`
   width: 122px;
   text-align: center;
-  padding: 15px 30px;
+  padding: 10px 30px;
   color: white;
   border: none;
   border-radius: 20px;
   font-size: 20px;
   font-weight: 600;
   transition: all 0.3s ease-out;
-  border: 1px solid rgba(255, 255, 255, 0.7);
   :hover {
-    box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.3),
-      inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0px 0px 0px 2px rgba(255, 255, 255, 0.2);
   }
 `
 
 const MenuItem = styled(Item)`
-  justify-content: end;
-  z-index: 9;
-  background: linear-gradient(120deg, var(--green) 0%, var(--green-300) 100%);
   filter: brightness(120%);
 
   @media (max-width: 880px) {
@@ -73,34 +67,8 @@ const MenuItem = styled(Item)`
   }
 `
 
-const MenuItemBackground = styled(Item)`
-  transform-origin: top left;
-  height: 50px;
-  width: 98%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  transform: rotate(-10deg);
-  transform-origin: bottom right;
-  z-index: -1;
-  background: linear-gradient(120deg, var(--green) 0%, var(--green-300) 100%);
-  user-select: none;
-  outline: none;
-  pointer-events: none;
-`
-
 const MenuItemWrapper = styled.div`
   position: relative;
-  backdrop-filter: blur(100px);
   width: 100%;
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  :hover {
-    /* transition-delay: 0.3s; */
-    transform: scale(1.1);
-    ${MenuItemBackground} {
-      transform: rotate(0deg) translateY(-10px);
-      visibility: hidden;
-    }
-  }
 `

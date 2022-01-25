@@ -58,10 +58,23 @@ const Logo = styled.h5`
   }
 
   > a {
-    background: linear-gradient(120deg, var(--yellow) 20%, #fae49d 100%);
+    /* background: linear-gradient(120deg, var(--yellow) 20%, #fae49d 100%);
     background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    -webkit-background-clip: text; */
+    color: white;
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    position: relative;
+
+    :hover {
+      &:after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
   }
 `
