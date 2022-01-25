@@ -115,7 +115,7 @@ const Button = styled.button`
   border-radius: 20px;
   font-size: 18px;
   border: none;
-  background-color: #be93fd;
+  background-color: var(--green-300);
   padding: 10px 20px;
   outline: none;
   color: white;
@@ -124,11 +124,9 @@ const Button = styled.button`
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   :hover {
-    /* box-shadow: inset 0px 2px 10px rgba(255, 255, 255, 0.5); */
-
-    filter: hue-rotate(10deg);
+    background-color: var(--green-hover);
     box-shadow: inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.7),
-      inset 0px 2px 10px rgba(255, 255, 255, 0.5);
+      inset 0px 3px 10px rgba(255, 255, 255, 0.5);
   }
 `
 
@@ -145,7 +143,7 @@ const OrderBy = styled.select`
   width: 100%;
   padding: 10px 20px;
   height: 50px;
-  background-color: #be93fd;
+  background-color: var(--green-300);
   color: white;
   font-size: 18px;
   font-weight: 800;
@@ -156,7 +154,7 @@ const OrderBy = styled.select`
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   :hover {
-    filter: hue-rotate(10deg);
+    background-color: var(--green-hover);
     box-shadow: inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.7),
       inset 0px 2px 10px rgba(255, 255, 255, 0.5);
   }
