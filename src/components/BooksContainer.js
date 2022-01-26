@@ -12,7 +12,11 @@ export default function BooksContainer() {
   } = useSelector(state => state.books)
 
   if (isLoading) {
-    return <Loader />
+    return (
+      <BooksWrapper>
+        <Loader />
+      </BooksWrapper>
+    )
   }
 
   // Da cambiare con un nuovo parametro firstAccess
@@ -33,22 +37,25 @@ export default function BooksContainer() {
 }
 
 const BooksWrapper = styled.div`
-  max-width: 880px;
+  max-width: 1440px;
   margin: 0 auto;
   display: grid;
   text-align: center;
 `
 
 const Title = styled.h2`
-  background: linear-gradient(120deg, #1c045d 0%, #412a83 100%);
+  background: linear-gradient(
+    180deg,
+    var(--green-hover) 0%,
+    rgba(0, 200, 0, 0.7) 100%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 800;
-  /* color: rgba(200, 200, 200, 0.5); */
 
   @media (max-width: 880px) {
-    font-size: 28px;
+    font-size: 36px;
   }
 `
