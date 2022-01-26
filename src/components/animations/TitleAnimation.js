@@ -21,7 +21,7 @@ const animation = keyframes`
 `
 
 const Title = styled.h1`
-  font-size: 70px;
+  font-size: 90px;
   color: white;
   padding: 10px;
   background: linear-gradient(120deg, var(--yellow) 20%, #fff 100%);
@@ -34,6 +34,6 @@ const Title = styled.h1`
   animation: ${animation} 3s ease-in alternate infinite;
 
   @media (max-width: 880px) {
-    font-size: 50px;
+    font-size: 58px;
   }
 `
